@@ -302,3 +302,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  dodgeSpeed: 10
+  dodgeTime: 0.2
+  movementStyle: 0
+  moving: 0
+  dodging: 0
