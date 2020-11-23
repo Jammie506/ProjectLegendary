@@ -14,8 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool movementStyle;
 
-    public bool moving;
-    public bool dodging;
+    private bool moving;
+    private bool dodging;
     private float horizontal;
     private float vertical;
     private Vector2 direction;
