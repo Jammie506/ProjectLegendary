@@ -7,12 +7,17 @@
         <e p="Scripts" t="Include">
           <e p="Enemies" t="Include">
             <e p="enemyController.cs" t="Include" />
+            <e p="enemyHealth.cs" t="Include" />
             <e p="gameManager.cs" t="Include" />
             <e p="healthManager.cs" t="Include" />
+            <e p="hurtEnemy.cs" t="Include" />
             <e p="hurtPlayer.cs" t="Include" />
           </e>
           <e p="Morrigan" t="Include">
             <e p="MorriganBossController.cs" t="Include" />
+          </e>
+          <e p="Player" t="Include">
+            <e p="PlayerMovement.cs" t="Include" />
           </e>
           <e p="Universal Scripts" t="Include">
             <e p="HealthSys.cs" t="Include" />
