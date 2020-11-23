@@ -6,24 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class hurtPlayer : MonoBehaviour
 {
-    void Start()
+    public float timer = 5;
+
+    private void Update()
     {
-        
+        timer += Time.deltaTime;
     }
 
-    void Update()
+    private void OnCollisionStay2D(Collision2D other)
     {
-        
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.collider.tag == "Player")
+        if (other.collider.tag == "Player" && timer >= 5)
         {
-            /*other.gameObject.SetActive(false);
-            SceneManager.LoadScene("GameOve");*/
-
             other.gameObject.GetComponent<healthManager>().HurtPlayer(10);
+            timer = 0;
         }
     }
 }
