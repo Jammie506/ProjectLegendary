@@ -307,8 +307,6 @@ MonoBehaviour:
   dodgeSpeed: 10
   dodgeTime: 0.2
   movementStyle: 0
-  moving: 0
-  dodging: 0
 --- !u!58 &463223353
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -471,10 +469,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3539685391452369732, guid: 35bae6e919a44465a835f5e2739f7657, type: 3}
-      propertyPath: m_LinearDrag
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3539685391452369736, guid: 35bae6e919a44465a835f5e2739f7657, type: 3}
       propertyPath: target
       value: 
