@@ -9,16 +9,6 @@ public class healthManager : MonoBehaviour
 
     public GameObject gM;
     
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     public void HurtPlayer(int damageToGive)
     {
         currentHealth -= damageToGive;
