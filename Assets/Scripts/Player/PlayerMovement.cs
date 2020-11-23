@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public bool dodging;
     private float horizontal;
     private float vertical;
-    private Vector3 direction;
+    private Vector2 direction;
 
     private void Update()
     {
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(0, vertical * speed * Time.deltaTime, 0);
 
         //dodge Vector
-        Vector3 dualVector = new Vector3(horizontal, vertical, 0);
+        Vector2 dualVector = new Vector2(horizontal, vertical);
         direction = dualVector.normalized;
     }
 
@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
         vertical = Input.GetAxis("Vertical");
 
         //Normalized Vector
-        Vector3 dualVector = new Vector3(horizontal, vertical, 0);
+        Vector2 dualVector = new Vector2(horizontal, vertical);
         direction = dualVector.normalized;
 
         //translate
