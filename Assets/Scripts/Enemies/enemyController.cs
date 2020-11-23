@@ -12,6 +12,8 @@ public class enemyController : MonoBehaviour
     private Rigidbody2D rB;
     
     [SerializeField] private float speed;
+    
+    //Set minRange to whatever the Player's size is so they dont get shoved around!!! - J
     [SerializeField] private float maxRange;
     [SerializeField] private float minRange;
     

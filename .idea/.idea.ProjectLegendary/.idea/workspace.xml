@@ -20,11 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba30ffa2-b068-4322-9b3d-87d1119c3b65" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectLegendary/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectLegendary/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectLegendary/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectLegendary/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/JamieTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/JamieTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/enemyAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/enemyAnimator.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/healthManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/healthManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Test Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Test Enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/enemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/enemyController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,12 +42,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/gameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/enemyController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/hurtPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/healthManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/healthManagerEE.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/enemyHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/hurtEnemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/enemyController.cs" />
       </list>
     </option>
   </component>
@@ -100,7 +97,7 @@
       <option name="presentableId" value="Default" />
       <updated>1606126628686</updated>
       <workItem from="1606126638593" duration="20000" />
-      <workItem from="1606126664345" duration="9807000" />
+      <workItem from="1606126664345" duration="10083000" />
     </task>
     <servers />
   </component>
