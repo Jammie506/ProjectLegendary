@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerKnockbackAttack : MonoBehaviour
 {
-    public float knockbackForce;
-    public float knockbackRange;
-    public float knockbackCooldown;
+    private Animator anim;
+
+    public float knockbackForce, knockbackRange, knockbackCooldown;
     public bool ready;
     public int maxEnemies;
 
@@ -16,6 +16,8 @@ public class PlayerKnockbackAttack : MonoBehaviour
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
+
         LayerMask mask = LayerMask.GetMask("Enemy");
         filter.SetLayerMask(mask);
         enemies = new Collider2D[maxEnemies];

@@ -6,19 +6,24 @@ public class PlayerMovement : MonoBehaviour
 {
     //components
     private Animator anim;
+    PlayerHulkMode hulk;
 
     //variables
-    public float speed;
-    public float dodgeSpeed;
-    public float dodgeTime;
+    public float speed, hulkSpeed;
+    public float dodgeSpeed, dodgeTime;
 
     public bool movementStyle;
 
-    private bool moving;
-    private bool dodging;
-    private float horizontal;
-    private float vertical;
+    public bool moving;
+    public bool dodging;
+    private float horizontal, vertical;
     private Vector2 direction;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+        hulk = GetComponent<PlayerHulkMode>();
+    }
 
     private void Update()
     {
@@ -50,8 +55,16 @@ public class PlayerMovement : MonoBehaviour
         vertical = Input.GetAxis("Vertical");
 
         //translate
-        transform.Translate(horizontal * speed * Time.deltaTime, 0, 0);
-        transform.Translate(0, vertical * speed * Time.deltaTime, 0);
+        if (!hulk.isHulk)
+        {
+            transform.Translate(horizontal * speed * Time.deltaTime, 0, 0);
+            transform.Translate(0, vertical * speed * Time.deltaTime, 0);
+        }
+        else
+        {
+            transform.Translate(horizontal * hulkSpeed * Time.deltaTime, 0, 0);
+            transform.Translate(0, vertical * hulkSpeed * Time.deltaTime, 0);
+        }
 
         //dodge Vector
         Vector2 dualVector = new Vector2(horizontal, vertical);
@@ -69,7 +82,15 @@ public class PlayerMovement : MonoBehaviour
         direction = dualVector.normalized;
 
         //translate
-        transform.Translate(direction * speed*Time.deltaTime);
+        if (!hulk.isHulk)
+        {
+            transform.Translate(direction * speed * Time.deltaTime);
+        }
+        else
+        {
+            transform.Translate(direction * hulkSpeed * Time.deltaTime);
+        }
+        
     }
 
     void MoveCheck()
