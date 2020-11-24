@@ -12,11 +12,16 @@
             <e p="healthManager.cs" t="Include" />
             <e p="hurtEnemy.cs" t="Include" />
             <e p="hurtPlayer.cs" t="Include" />
+            <e p="projectileStuff.cs" t="Include" />
+            <e p="rangeEnemyController.cs" t="Include" />
+            <e p="sling.cs" t="Include" />
           </e>
           <e p="Morrigan" t="Include">
             <e p="MorriganBossController.cs" t="Include" />
+            <e p="RingOfBullets.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
+            <e p="PlayerKnockbackAttack.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
           </e>
           <e p="Universal Scripts" t="Include">

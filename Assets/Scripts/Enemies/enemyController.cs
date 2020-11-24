@@ -13,7 +13,7 @@ public class enemyController : MonoBehaviour
     
     [SerializeField] private float speed;
     
-    //Set minRange to whatever the Player's size is so they dont get shoved around!!! - J
+    //Set minRange to whatever the Enemy's size is so they dont get shoved around!!! - J
     [SerializeField] private float maxRange;
     [SerializeField] private float minRange;
     
