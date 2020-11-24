@@ -37,22 +37,31 @@ public class ProjectileSys : MonoBehaviour
     void FixedUpdate()
     {
 
-
+        Movement();
         lifetime -= 1 * Time.deltaTime;
 
         if (lifetime <= 0) Destroy(gameObject);
 
     }
 
+    void Movement()
+    {
+
+        Rigidbody2D myRB = GetComponent<Rigidbody2D>();
+        myRB.velocity = transform.right * speed;
+
+    }
+
+
     private void OnCollisionStay2D(Collision2D collision)
     {
 
         if (collision.collider.CompareTag("Player") || collision.collider.CompareTag("Enemy"))
         {
-            int otherHP = collision.collider.GetComponent<HealthSys>().health;
+            HealthSys otherHP = collision.collider.GetComponent<HealthSys>();
 
-            otherHP -= damage;
-
+            otherHP.health -= damage;
+            Debug.Log("HIT");
 
         }
 
@@ -76,9 +85,9 @@ public class ProjectileSys : MonoBehaviour
             if (other.CompareTag("Player") || other.CompareTag("Enemy"))
             {
 
-                int otherHP = other.GetComponent<HealthSys>().health;
+                HealthSys otherHP = other.GetComponent<HealthSys>();
 
-                otherHP -= damage;
+                otherHP.health -= damage;
 
             }
 
@@ -98,9 +107,9 @@ public class ProjectileSys : MonoBehaviour
             if (hit.CompareTag("Player") || hit.CompareTag("Enemy"))
             {
 
-               int otherHP = hit.GetComponent<HealthSys>().health;
+               HealthSys otherHP = hit.GetComponent<HealthSys>();
 
-                otherHP -= explosiveDamage;
+                otherHP.health -= explosiveDamage;
                
             }
 
