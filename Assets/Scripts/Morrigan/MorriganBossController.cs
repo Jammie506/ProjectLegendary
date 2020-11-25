@@ -13,6 +13,7 @@ public class MorriganBossController : MonoBehaviour
         myRB = GetComponent<Rigidbody2D>();
         myTarget = GameObject.FindGameObjectWithTag("Player");
 
+
         StartCoroutine(ChangeAttackMode());
     }
     [SerializeField]
@@ -169,7 +170,7 @@ public class MorriganBossController : MonoBehaviour
                     {
                         for (int j = 0; j < 20; j++)
                         {
-                            Instantiate(attacksTypes[1], firePointsStage2[i].transform.position, firePointsStage2[i].transform.rotation);
+                            Instantiate(attacksTypes[1], firePointsStage2[i].transform.position, firePointsStage2[i].transform.rotation * Quaternion.Euler(0,0,Random.Range(-30,30)));
                         }
 
 
@@ -184,19 +185,28 @@ public class MorriganBossController : MonoBehaviour
 
             case 3:         // Accelerator Bullets
 
-                for (int i = 0; i < firePointsStage1.Length; i++)
+                for (int i = 0; i < firePointsStage3.Length; i++)
                 {
-                    Instantiate(attacksTypes[2], firePointsStage1[i].transform.position, Quaternion.identity);
+                    Instantiate(attacksTypes[2], firePointsStage3[i].transform.position, firePointsStage3[i].transform.rotation);
                 }
 
                 break;      // Fires ranged attacks 1 - 3
 
-            
+            case 4:
+
+                for (int i = 0; i < firePointsStage3.Length; i++)
+                {
+
+                    
+                }
+
+                break;
 
         }
 
 
     }
+
 
     void LaunchAttackPatternMelee()
     {
@@ -206,10 +216,14 @@ public class MorriganBossController : MonoBehaviour
 
             case 1:
 
+                GameObject sweep = Instantiate(attacksTypes[3], transform.position, transform.rotation * Quaternion.Euler(0,0,-60));
+                sweep.transform.parent = gameObject.transform;
+
                 break;
 
             case 2:
-
+                GameObject lunge = Instantiate(attacksTypes[4], transform.position, transform.rotation);
+                lunge.transform.parent = gameObject.transform;
                 break;
 
 

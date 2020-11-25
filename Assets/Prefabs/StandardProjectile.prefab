@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9163912745218606418}
   - component: {fileID: 9163912745218606416}
   m_Layer: 10
-  m_Name: TestProjectile
+  m_Name: StandardProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,9 +125,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   speed: 10
+  randomSpeed: 0
+  minSpeed: 1
+  maxSpeed: 5
   lifetime: 5
   delay: 0
   isHoming: 0
+  homingPower: 0.01
   isMultiHit: 0
   subProjectile: {fileID: 0}
   isExplosive: 0

@@ -14,6 +14,11 @@ public class ProjectileSys : MonoBehaviour
         if (isMultiHit) myCollider.isTrigger = true;
         else myCollider.isTrigger = false;
 
+        if (randomSpeed)
+        {
+            speed = Random.Range(minSpeed, maxSpeed);
+        }
+
     }
 
     private Collider2D myCollider;
@@ -21,14 +26,20 @@ public class ProjectileSys : MonoBehaviour
     [Header("Settings")]
     public int damage = 10;
     public float speed = 5f;
+    public bool randomSpeed = false;    // Overrides standard speed with a random value
+    public float minSpeed = 1f, maxSpeed = 5f;
     public float lifetime = 5f;
     public float delay = 0;     //  stays still until delay is up
     public bool isHoming = false;       // Tracks and chases target
+    public float homingPower = 1f;
     public bool isMultiHit = false;             // Will not despawn on hit
     public GameObject subProjectile;                    // Fires projectile out of main projectile
     public bool isExplosive = false;                            // Does exactly what it says
     public int explosiveDamage = 5;
     public float radius = 5;
+    public bool isRampUp;                                                           // Accelerates overtime
+    public float rampStrength = 1f;
+    private float overtime = 0;
 
     [Header("Effects")]
     public GameObject[] effectOnHit;
@@ -49,19 +60,58 @@ public class ProjectileSys : MonoBehaviour
     {
 
         Rigidbody2D myRB = GetComponent<Rigidbody2D>();
-        myRB.velocity = transform.right * speed;
 
+        if (isRampUp != true)
+        {
+            myRB.velocity = transform.right * speed;
+        }
+        else
+        {
+            overtime += rampStrength * Time.deltaTime;
+            myRB.velocity = transform.right * overtime;
+
+        }
+
+
+    //    float step = homingPower * Time.deltaTime;
+        #region homing WIP
+        /*
+        GameObject target = GameObject.FindGameObjectWithTag("Player");
+        if (isHoming)
+        {
+
+            Vector2 direction = Vector2.Scale(target.transform.position, transform.position);
+
+            float angleDiff = Vector2.Angle(transform.right,direction);
+
+         //   float velocityAdjustmentScalar = (m_DegreesPerSecond * Mathf.Deg2Rad) - m_Rigidbody.angularVelocity.magnitude;
+
+            if (angleDiff < 1.5 && angleDiff > -1.5)
+            {
+                myRB.AddTorque(-myRB.angularVelocity, ForceMode2D.Force);
+            }
+            else
+            {
+                myRB.AddTorque(myRB.angularVelocity, ForceMode2D.Force);
+            }
+
+
+        }// For Enemy Projectiles Only!
+        */
+        #endregion
     }
 
 
     private void OnCollisionStay2D(Collision2D collision)
     {
 
-        if (collision.gameObject.layer == 10) return;
+        if (collision.gameObject.layer == 10) return;       // ANYTHING with the layer Projectile is ignored by the object
 
 
         if (collision.collider.CompareTag("Player") || collision.collider.CompareTag("Enemy"))
         {
+
+
             HealthSys otherHP = collision.collider.GetComponent<HealthSys>();
 
             otherHP.health -= damage;
@@ -74,7 +124,7 @@ public class ProjectileSys : MonoBehaviour
         for (int i = 0; i < effectOnHit.Length; i++)
         {
             if (effectOnHit != null)
-            Instantiate(effectOnHit[i],transform.position,Quaternion.identity);
+            Instantiate(effectOnHit[i],transform.position,Quaternion.identity * Quaternion.Euler(90,0,0));
         }
 
         Destroy(gameObject);
@@ -120,15 +170,19 @@ public class ProjectileSys : MonoBehaviour
         }
 
     }
+
+
     
 
 
     private void OnDestroy()
     {
+        /*
         for (int i = 0; i < effectOnHit.Length; i++)
         {
-
+            
             Instantiate(effectOnHit[i], transform.position, transform.localRotation * Quaternion.Euler(90,0,0));
         }
+        */
     }
 }
