@@ -9,6 +9,7 @@ public class ProjectileSys : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        Physics2D.IgnoreLayerCollision(10,10);
         myCollider = GetComponent<Collider2D>();
         if (isMultiHit) myCollider.isTrigger = true;
         else myCollider.isTrigger = false;
@@ -55,6 +56,9 @@ public class ProjectileSys : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
+
+        if (collision.gameObject.layer == 10) return;
+
 
         if (collision.collider.CompareTag("Player") || collision.collider.CompareTag("Enemy"))
         {
@@ -118,12 +122,13 @@ public class ProjectileSys : MonoBehaviour
     }
     
 
+
     private void OnDestroy()
     {
         for (int i = 0; i < effectOnHit.Length; i++)
         {
 
-            Instantiate(effectOnHit[i], transform.position, Quaternion.identity);
+            Instantiate(effectOnHit[i], transform.position, transform.localRotation * Quaternion.Euler(90,0,0));
         }
     }
 }

@@ -12,6 +12,8 @@ public class MorriganBossController : MonoBehaviour
         getBossHealth = GetComponent<HealthSys>();
         myRB = GetComponent<Rigidbody2D>();
         myTarget = GameObject.FindGameObjectWithTag("Player");
+
+        StartCoroutine(ChangeAttackMode());
     }
     [SerializeField]
     private float distToTarget;
@@ -22,7 +24,7 @@ public class MorriganBossController : MonoBehaviour
     private Rigidbody2D myRB;
 
     public GameObject myTarget;
-
+    public bool isDead = false;
     #region Settings
 
     [Header("Movement Settings")]
@@ -42,9 +44,11 @@ public class MorriganBossController : MonoBehaviour
     public GameObject[] firePointsStage3;
 
     public GameObject[] firePointSubAttack;
-    private int attackMode;                 // Attack Modes: 1 = Firepoints-1, 2 = Firepoints-2 etc...      4 = Firepoints 1-3 (Fires All Stages)
+    public GameObject[] firePointMeleeAttack;
+    
 
     #endregion
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -67,29 +71,137 @@ public class MorriganBossController : MonoBehaviour
         if (distToTarget > distOuter)   // Outer
         {
             myRB.AddRelativeForce(Vector2.right * speed * Time.deltaTime,ForceMode2D.Force);
+            isAttackRange = true;
         }
         else if (distToTarget < distOuter && distToTarget > distInner)  // Middle
         {
-
+            isAttackRange = false;
         }
         else if (distToTarget < distInner)
         {
             myRB.AddRelativeForce(Vector2.right * -speed * Time.deltaTime,ForceMode2D.Force);
+            isAttackRange = false;
         }
         
 
     }
 
+
+    #region Attack Pattern Variables
+    [Header("Attack Pattern Settings")]
+    float coolDown = 0;                    // Use for Charge up, Continous Attacks
+    float subCoolDown = 0;                         // Use for Sub Attacks
+    public int attackModeRange;                          // Attack Modes: 1 = Firepoints-1, 2 = Firepoints-2 etc...      4 = Firepoints 1-3 (Fires All Stages)
+    public int attackModeMelee;
+    bool isAttackRange = true;
+    public int minAttackMode, maxAttackMode;                                      // Set a limit when moving up boss stages (RANGE)
+    int bossStage = 0;
+    
+  //  public float timerIE = 0.1f;
+
+    #endregion
+
+
     void AIDecision()
     {
 
+        if (isDead == true) return;
+
+
+        // Choose Attack
+        if (isAttackRange)
+        {
+            Debug.Log("RANGE");
+            LaunchAttackPatternsRange();
+        }
+        else
+        {
+            Debug.Log("MELEE");
+            LaunchAttackPatternMelee();
+        }
+
+
     }
 
-    void LaunchAttackPatterns()
+    IEnumerator ChangeAttackMode()
+    {
+        while (true)
+        {
+
+            attackModeRange++;
+            if (attackModeRange > maxAttackMode) attackModeRange = minAttackMode; // reset to min value
+
+            attackModeMelee = Random.Range(1, 2);       // Melee Attacks are Randomized
+
+            yield return new WaitForSeconds(5f);
+        }
+        
+    }
+
+    void LaunchAttackPatternsRange()
     {
 
 
-        switch (attackMode)
+        switch (attackModeRange)
+        {
+
+            case 1:
+                coolDown -= 1 * Time.deltaTime;
+                if (coolDown < 0)
+                {
+                    for (int i = 0; i < firePointsStage1.Length; i++)      // Standard Foward Spray Attack
+                    {
+                        Instantiate(attacksTypes[0], firePointsStage1[i].transform.position, firePointsStage1[i].transform.rotation);
+                    }
+                    coolDown = 0.25f;
+                }
+                
+
+                break;
+
+            case 2:         // Charge up Burst
+
+                coolDown -= 1 * Time.deltaTime;
+                if (coolDown < 0)
+                {
+
+                    for (int i = 0; i < firePointsStage2.Length; i++)
+                    {
+                        for (int j = 0; j < 20; j++)
+                        {
+                            Instantiate(attacksTypes[1], firePointsStage2[i].transform.position, firePointsStage2[i].transform.rotation);
+                        }
+
+
+                    }
+
+                    coolDown = 2.5f;
+                }
+
+                
+
+                break;
+
+            case 3:         // Accelerator Bullets
+
+                for (int i = 0; i < firePointsStage1.Length; i++)
+                {
+                    Instantiate(attacksTypes[2], firePointsStage1[i].transform.position, Quaternion.identity);
+                }
+
+                break;      // Fires ranged attacks 1 - 3
+
+            
+
+        }
+
+
+    }
+
+    void LaunchAttackPatternMelee()
+    {
+
+        switch (attackModeMelee)
         {
 
             case 1:
@@ -100,18 +212,8 @@ public class MorriganBossController : MonoBehaviour
 
                 break;
 
-            case 3:
-
-                break;
-
-            case 4:
-
-                break;
-
-
 
         }
-
 
     }
 
