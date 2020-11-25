@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
         MoveCheck();
         Dodge();
+        AnimCheck();
 
         if (!dodging)
         {
@@ -127,5 +128,26 @@ public class PlayerMovement : MonoBehaviour
         }
 
         dodging = false;
+    }
+
+    void AnimCheck()
+    {
+        if (moving)
+        {
+            anim.SetBool("Moving", true);
+        }
+        else
+        {
+            anim.SetBool("Moving", false);
+        }
+
+        if (dodging)
+        {
+            anim.SetBool("Dodging", true);
+        }
+        else
+        {
+            anim.SetBool("Dodging", false);
+        }
     }
 }

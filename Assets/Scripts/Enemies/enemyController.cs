@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 public class enemyController : MonoBehaviour
 {
-    private Animator enemyAnim;
+    //private Animator enemyAnim;
     public Transform target;
 
     private Rigidbody2D rB;
@@ -19,7 +19,7 @@ public class enemyController : MonoBehaviour
     
     void Start()
     {
-        enemyAnim = GetComponent<Animator>();
+        //enemyAnim = GetComponent<Animator>();
 
         rB = this.GetComponent<Rigidbody2D>();
     }
@@ -39,9 +39,9 @@ public class enemyController : MonoBehaviour
 
     public void FollowPlayer()
     {
-        enemyAnim.SetBool("isMoving", true);
-        enemyAnim.SetFloat( "moveX", (target.position.x - transform.position.x));
-        enemyAnim.SetFloat( "moveY", (target.position.y - transform.position.y));
+        //enemyAnim.SetBool("isMoving", true);
+        //enemyAnim.SetFloat( "moveX", (target.position.x - transform.position.x));
+        //enemyAnim.SetFloat( "moveY", (target.position.y - transform.position.y));
         
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed*Time.deltaTime);
     }
