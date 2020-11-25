@@ -132,7 +132,7 @@ public class MorriganBossController : MonoBehaviour
             attackModeRange++;
             if (attackModeRange > maxAttackMode) attackModeRange = minAttackMode; // reset to min value
 
-            attackModeMelee = Random.Range(1, 2);       // Melee Attacks are Randomized
+            attackModeMelee = Random.Range(1, 3);       // Melee Attacks are Randomized
 
             yield return new WaitForSeconds(5f);
         }
@@ -185,10 +185,16 @@ public class MorriganBossController : MonoBehaviour
 
             case 3:         // Accelerator Bullets
 
-                for (int i = 0; i < firePointsStage3.Length; i++)
+                coolDown -= 1 * Time.deltaTime;
+                if (coolDown < 0)
                 {
-                    Instantiate(attacksTypes[2], firePointsStage3[i].transform.position, firePointsStage3[i].transform.rotation);
+                    for (int i = 0; i < firePointsStage3.Length; i++)
+                    {
+                        Instantiate(attacksTypes[2], firePointsStage3[i].transform.position, firePointsStage3[i].transform.rotation);
+                    }
+                    coolDown = 0.5f;
                 }
+                
 
                 break;      // Fires ranged attacks 1 - 3
 
