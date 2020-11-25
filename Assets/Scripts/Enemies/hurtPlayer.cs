@@ -23,14 +23,14 @@ public class hurtPlayer : MonoBehaviour
     {
         if (other.collider.tag == "Player" && timer >= 5)
         {
-            enemy.GetComponent<Animator>().SetBool("isAttack", true);
+            //enemy.GetComponent<Animator>().SetBool("isAttack", true);
             
             other.gameObject.GetComponent<healthManager>().HurtPlayer(10);
             timer = 0;
         }
         else
         {
-            enemy.GetComponent<Animator>().SetBool("isAttack", false);
+            //enemy.GetComponent<Animator>().SetBool("isAttack", false);
         }
     }
 }

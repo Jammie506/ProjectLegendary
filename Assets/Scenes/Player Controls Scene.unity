@@ -332,6 +332,11 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1742909640 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3539685391452369743, guid: 35bae6e919a44465a835f5e2739f7657, type: 3}
+  m_PrefabInstance: {fileID: 2045684119}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2045684119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -391,6 +396,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3539685392029333585, guid: 35bae6e919a44465a835f5e2739f7657, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 1742909640}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35bae6e919a44465a835f5e2739f7657, type: 3}
 --- !u!1001 &88560544099325949
@@ -400,6 +409,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 88560543756709316, guid: 9127648563b77d54aa15fef1d7de78a8, type: 3}
+      propertyPath: m_Radius
+      value: 0.55
+      objectReference: {fileID: 0}
     - target: {fileID: 88560543756709320, guid: 9127648563b77d54aa15fef1d7de78a8, type: 3}
       propertyPath: m_Name
       value: Player
@@ -448,5 +461,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 88560543756709323, guid: 9127648563b77d54aa15fef1d7de78a8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2956616211699239020, guid: 7b6671cd540d0dc4294d7d1d6d0e543e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9127648563b77d54aa15fef1d7de78a8, type: 3}

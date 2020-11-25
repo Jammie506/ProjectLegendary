@@ -29,14 +29,18 @@ public class PlayerAttacks : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && !isAttacking && !pMove.dodging && !hulk.isHulk)
         {
             //play swipe animation
+            anim.SetBool("Swipe", true);
             //when animation is right, call damage
             //when animation finished, allow attacks again
+            //anim.SetBool("Swipe", false);
         }
         else if (Input.GetButtonDown("Fire2") && !isAttacking && !pMove.dodging && !hulk.isHulk)
         {
             //play stab animation
+            anim.SetBool("Stab", true);
             //when animation is right, call damage
             //when animation finished, allow attacks again
+            //anim.SetBool("Stab", false);
         }
         else if(Input.GetButtonDown("Fire1") && !isAttacking && !pMove.dodging && hulk.isHulk)
         {
