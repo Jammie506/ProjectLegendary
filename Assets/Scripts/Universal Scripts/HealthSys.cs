@@ -18,5 +18,13 @@ public class HealthSys : MonoBehaviour
         {
             isDead = true;
         }
+
+        if (isDead)
+        {
+            if (gameObject.CompareTag("Enemy"))
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }
