@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 30
+  rotateDelay: 0
 --- !u!1 &5854598745106923121
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +183,6 @@ GameObject:
   - component: {fileID: 5854598745106923125}
   - component: {fileID: 5854598745106923130}
   - component: {fileID: 5854598745106923131}
-  - component: {fileID: 5854598745106923128}
   m_Layer: 0
   m_Name: BossUnit
   m_TagString: Enemy
@@ -365,22 +365,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.68, y: 1.72032}
   m_EdgeRadius: 0
---- !u!114 &5854598745106923128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5854598745106923121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 663a4df77d8639c4d89bed4fdeb34806, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radian: 2
-  radius: 5
-  ringNum: 2
-  myObject: {fileID: 0}
 --- !u!1 &5984853645207373478
 GameObject:
   m_ObjectHideFlags: 0

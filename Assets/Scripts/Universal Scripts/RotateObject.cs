@@ -11,13 +11,22 @@ public class RotateObject : MonoBehaviour
     }
 
     public float rotateSpeed = 180f;
+    public float rotateDelay = 0f;
 
 
     // Update is called once per frame
     void FixedUpdate()
     {
 
-        transform.rotation = transform.rotation * Quaternion.Euler(0,0,rotateSpeed * Time.deltaTime);
+        if (rotateDelay <= 0)
+        {
+            transform.rotation = transform.rotation * Quaternion.Euler(0, 0, rotateSpeed * Time.deltaTime);
+        }
+        else
+        {
+            rotateDelay -= 1 * Time.deltaTime;
+        }
+
 
     }
 }

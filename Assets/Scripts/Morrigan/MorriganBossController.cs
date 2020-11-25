@@ -128,13 +128,13 @@ public class MorriganBossController : MonoBehaviour
     {
         while (true)
         {
-
+            coolDown = 2.5f;
             attackModeRange++;
             if (attackModeRange > maxAttackMode) attackModeRange = minAttackMode; // reset to min value
 
             attackModeMelee = Random.Range(1, 3);       // Melee Attacks are Randomized
 
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(7.5f);
         }
         
     }
@@ -222,14 +222,31 @@ public class MorriganBossController : MonoBehaviour
 
             case 1:
 
-                GameObject sweep = Instantiate(attacksTypes[3], transform.position, transform.rotation * Quaternion.Euler(0,0,-60));
-                sweep.transform.parent = gameObject.transform;
+                coolDown -= 1 * Time.deltaTime;
+                if (coolDown < 0)
+                {
+                    GameObject sweep = Instantiate(attacksTypes[3], transform.position, transform.rotation * Quaternion.Euler(0, 0, -60));
+                    sweep.transform.parent = gameObject.transform;
+
+                    coolDown = 2.5f;
+                }
+
+                
 
                 break;
 
             case 2:
-                GameObject lunge = Instantiate(attacksTypes[4], transform.position, transform.rotation);
-                lunge.transform.parent = gameObject.transform;
+                
+
+                coolDown -= 1 * Time.deltaTime;
+                if (coolDown < 0)
+                {
+                    GameObject lunge = Instantiate(attacksTypes[4], transform.position, transform.rotation);
+                    lunge.transform.parent = gameObject.transform;
+
+                    coolDown = 2.5f;
+                }
+
                 break;
 
 

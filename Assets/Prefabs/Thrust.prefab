@@ -132,7 +132,7 @@ MonoBehaviour:
   delay: 0
   isHoming: 0
   homingPower: 0.01
-  isMultiHit: 0
+  isMultiHit: 1
   subProjectile: {fileID: 0}
   isExplosive: 0
   explosiveDamage: 5

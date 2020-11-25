@@ -58,19 +58,22 @@ public class ProjectileSys : MonoBehaviour
 
     void Movement()
     {
-
-        Rigidbody2D myRB = GetComponent<Rigidbody2D>();
-
-        if (isRampUp != true)
+        if (gameObject.GetComponent<Rigidbody2D>() == true)
         {
-            myRB.velocity = transform.right * speed;
-        }
-        else
-        {
-            overtime += rampStrength * Time.deltaTime;
-            myRB.velocity = transform.right * overtime;
+            Rigidbody2D myRB = GetComponent<Rigidbody2D>();
 
+            if (isRampUp != true && myRB != null && delay <= 0)
+            {
+                myRB.velocity = transform.right * speed;
+            }
+            else
+            {
+                overtime += rampStrength * Time.deltaTime;
+                myRB.velocity = transform.right * overtime;
+
+            }
         }
+        
 
 
     //    float step = homingPower * Time.deltaTime;
