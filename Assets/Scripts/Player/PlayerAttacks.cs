@@ -9,10 +9,9 @@ public class PlayerAttacks : MonoBehaviour
     PlayerHulkMode hulk;
 
     private Transform attackSpawn;
-    public GameObject swipe, stab;
+    public GameObject swipe, stab, smash;
 
     public int swipeDamage, stabDamage, hulkDamage; //how much damage each attack type should do
-    public float swipeInterval, stabInterval, hulkInterval; //how long between each attack, for before we rig up animatioin behaviours
     public bool isAttacking; //prevents attack spamming
 
     private void Start()
@@ -35,28 +34,20 @@ public class PlayerAttacks : MonoBehaviour
             //play swipe animation
             isAttacking = true;
             anim.SetBool("Swipe", true);
-            //when animation is right, call damage
-            //Damage(swipeDamage);
-            //when animation finished, allow attacks again
         }
         else if (Input.GetButtonDown("Fire2") && !isAttacking && !pMove.dodging && !hulk.isHulk)
         {
             //play stab animation
             isAttacking = true;
             anim.SetBool("Stab", true);
-            //when animation is right, call damage
-            //Damage(stabDamage);
-            //when animation finished, allow attacks again
         }
         else if(Input.GetButtonDown("Fire1") && !isAttacking && !pMove.dodging && hulk.isHulk)
         {
             //play hulk attack animation
             isAttacking = true;
             anim.SetBool("Smash", true);
-            //when animation is right, call damage
-            //Damage(hulkDamage);
-            //when animation is finished, allow attacks again
         }
+        //animation behaviour scripts handle the rest
     }
 
     public void Damage(int damage)
@@ -75,6 +66,8 @@ public class PlayerAttacks : MonoBehaviour
         else if(damage == hulkDamage)
         {
             //hulk attack
+            GameObject hulkAttack = Instantiate(smash, attackSpawn.position, attackSpawn.rotation);
+            hulkAttack.GetComponent<ProjectileSys>().damage = damage;
         }
     }
 }
