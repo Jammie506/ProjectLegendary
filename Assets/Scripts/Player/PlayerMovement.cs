@@ -34,19 +34,13 @@ public class PlayerMovement : MonoBehaviour
         if (!dodging)
         {
             Movement();
+            DirectionalRotation();
         }
     }
 
     void Movement()
     {
-        if (movementStyle)
-        {
-            MovementVectoredAxes();
-        }
-        else
-        {
-            MovementDualAxes();
-        }
+        MovementRotational();
     }
 
     void MovementDualAxes()
@@ -92,6 +86,30 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(direction * hulkSpeed * Time.deltaTime);
         }
         
+    }
+
+    void MovementRotational()
+    {
+        //get axes
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
+
+        if (horizontal != 0 || vertical != 0)
+        {
+            //Normalized Vector
+            Vector2 dualVector = new Vector2(horizontal, vertical);
+            direction = dualVector.normalized;
+
+            //translate
+            transform.Translate(Vector2.down * speed * Time.deltaTime);
+        }
+    }
+
+    void DirectionalRotation()
+    {
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion quat = Quaternion.Euler(0, 0, angle + 90);
+        transform.rotation = quat;
     }
 
     void MoveCheck()
