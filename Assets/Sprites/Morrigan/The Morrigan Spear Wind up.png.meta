@@ -1,7 +1,67 @@
 fileFormatVersion: 2
 guid: d7468582436c6be4ea1c477c3d9e189f
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 6027779795366966632
+    second: The Morrigan Spear Wind up_0
+  - first:
+      213: -5209445314515434857
+    second: The Morrigan Spear Wind up_1
+  - first:
+      213: 119734341324585144
+    second: The Morrigan Spear Wind up_2
+  - first:
+      213: 5175411495287477500
+    second: The Morrigan Spear Wind up_3
+  - first:
+      213: 2357380729767433859
+    second: The Morrigan Spear Wind up_4
+  - first:
+      213: 7938174723509511233
+    second: The Morrigan Spear Wind up_5
+  - first:
+      213: 7004194607641810314
+    second: The Morrigan Spear Wind up_6
+  - first:
+      213: -9058659023890247713
+    second: The Morrigan Spear Wind up_7
+  - first:
+      213: 1983097769180300155
+    second: The Morrigan Spear Wind up_8
+  - first:
+      213: 3685999711471051283
+    second: The Morrigan Spear Wind up_9
+  - first:
+      213: -6112674918780985570
+    second: The Morrigan Spear Wind up_0
+  - first:
+      213: 7937970932603206967
+    second: The Morrigan Spear Wind up_1
+  - first:
+      213: 3772915533557141527
+    second: The Morrigan Spear Wind up_2
+  - first:
+      213: -7006162980201096462
+    second: The Morrigan Spear Wind up_3
+  - first:
+      213: -6141930527458178612
+    second: The Morrigan Spear Wind up_4
+  - first:
+      213: 6840471847332890
+    second: The Morrigan Spear Wind up_5
+  - first:
+      213: 9068462007198195667
+    second: The Morrigan Spear Wind up_6
+  - first:
+      213: -7509114168425613132
+    second: The Morrigan Spear Wind up_7
+  - first:
+      213: 2113229514842738577
+    second: The Morrigan Spear Wind up_8
+  - first:
+      213: -1744460999621087650
+    second: The Morrigan Spear Wind up_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +101,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -73,9 +133,243 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: The Morrigan Spear Wind up_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 150
+        height: 240
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1f9e963c8a6b2ba0800000000000000
+      internalID: -6112674918780985570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Morrigan Spear Wind up_1
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 240
+        width: 150
+        height: 240
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73db03b8186592e60800000000000000
+      internalID: 7937970932603206967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Morrigan Spear Wind up_2
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 240
+        width: 150
+        height: 240
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7101a3120b61c5430800000000000000
+      internalID: 3772915533557141527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Morrigan Spear Wind up_3
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 240
+        width: 150
+        height: 240
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fa1f96c3eb15ce90800000000000000
+      internalID: -7006162980201096462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Morrigan Spear Wind up_4
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 240
+        width: 150
+        height: 240
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc94ab30aba73caa0800000000000000
+      internalID: -6141930527458178612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Morrigan Spear Wind up_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 150
+        height: 240
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1c6e867f5d481000800000000000000
+      internalID: 6840471847332890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Morrigan Spear Wind up_6
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 150
+        height: 240
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df9c261626a9dd70800000000000000
+      internalID: 9068462007198195667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Morrigan Spear Wind up_7
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 150
+        height: 240
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b87325e2744ac790800000000000000
+      internalID: -7509114168425613132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Morrigan Spear Wind up_8
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 150
+        height: 240
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19f82112c03b35d10800000000000000
+      internalID: 2113229514842738577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Morrigan Spear Wind up_9
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 150
+        height: 240
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5eef01a6fd6ac7e0800000000000000
+      internalID: -1744460999621087650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
