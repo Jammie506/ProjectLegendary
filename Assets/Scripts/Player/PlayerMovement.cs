@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     //components
     private Animator anim;
     PlayerHulkMode hulk;
+    Collider2D myCollider;
 
     //variables
     public float speed, hulkSpeed;
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         hulk = GetComponent<PlayerHulkMode>();
+        myCollider = GetComponent<Collider2D>();
     }
 
     private void Update()
@@ -130,6 +132,7 @@ public class PlayerMovement : MonoBehaviour
         {
             dodging = true;
             float dodgeTimer = dodgeTime;
+            myCollider.enabled = false;
             StartCoroutine(DodgeMove(dodgeTimer));
         }
     }
@@ -146,6 +149,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         dodging = false;
+        myCollider.enabled = true;
     }
 
     void AnimCheck()

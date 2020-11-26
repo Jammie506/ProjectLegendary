@@ -428,6 +428,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.55
       objectReference: {fileID: 0}
+    - target: {fileID: 88560543756709317, guid: 9127648563b77d54aa15fef1d7de78a8, type: 3}
+      propertyPath: dodgeTime
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 88560543756709320, guid: 9127648563b77d54aa15fef1d7de78a8, type: 3}
       propertyPath: m_Name
       value: Player
