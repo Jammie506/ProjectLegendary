@@ -36,7 +36,7 @@ public class PlayerAttacks : MonoBehaviour
             isAttacking = true;
             anim.SetBool("Swipe", true);
             //when animation is right, call damage
-            Damage(swipeDamage);
+            //Damage(swipeDamage);
             //when animation finished, allow attacks again
         }
         else if (Input.GetButtonDown("Fire2") && !isAttacking && !pMove.dodging && !hulk.isHulk)
@@ -45,15 +45,16 @@ public class PlayerAttacks : MonoBehaviour
             isAttacking = true;
             anim.SetBool("Stab", true);
             //when animation is right, call damage
-            Damage(stabDamage);
+            //Damage(stabDamage);
             //when animation finished, allow attacks again
         }
         else if(Input.GetButtonDown("Fire1") && !isAttacking && !pMove.dodging && hulk.isHulk)
         {
             //play hulk attack animation
             isAttacking = true;
+            anim.SetBool("Smash", true);
             //when animation is right, call damage
-            Damage(hulkDamage);
+            //Damage(hulkDamage);
             //when animation is finished, allow attacks again
         }
     }

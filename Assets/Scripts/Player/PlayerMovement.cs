@@ -141,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
         while(dodgeRoutine > 0)
         {
             dodgeRoutine -= Time.deltaTime;
-            transform.Translate(direction * dodgeSpeed * Time.deltaTime);
+            transform.Translate(Vector2.down * dodgeSpeed * Time.deltaTime);
             yield return null;
         }
 
