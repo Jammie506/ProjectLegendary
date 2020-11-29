@@ -23,6 +23,7 @@ public class MorriganBossController : MonoBehaviour
     [SerializeField]
     private float myTimer = 0;
     private Rigidbody2D myRB;
+    public Animator myAnim;
 
     public GameObject myTarget;
     public bool isDead = false;
@@ -93,7 +94,7 @@ public class MorriganBossController : MonoBehaviour
     int bossStage = 0;
     float rangeMod = 0; // is added to distance ranges when attempting a lunge attack
                         //  public float timerIE = 0.1f;
-
+    bool sideMoveRight = true;
     #endregion
 
 
@@ -125,6 +126,14 @@ public class MorriganBossController : MonoBehaviour
         else if (distToTarget < distO && distToTarget > distI)  // Middle
         {
             isAttackRange = false;
+            if (sideMoveRight)      // NOTE: Right is the new forward, sidemove is UP and DOWN on the local Y Axis
+            {
+                myRB.AddRelativeForce((Vector2.up * speed / 2) * Time.deltaTime, ForceMode2D.Force);
+            }
+            else
+            {
+                myRB.AddRelativeForce((Vector2.down * speed / 2) * Time.deltaTime, ForceMode2D.Force);
+            }
         }
         else if (distToTarget < distI)
         {
@@ -160,6 +169,13 @@ public class MorriganBossController : MonoBehaviour
         while (true)
         {
             myRB.drag = 1f;
+            if (sideMoveRight)
+            {
+                sideMoveRight = false;
+            }
+            else {
+                sideMoveRight = true;
+            }
             coolDown = 3.5f;
             attackModeRange++;
             if (attackModeRange > maxAttackMode) attackModeRange = minAttackMode; // reset to min value

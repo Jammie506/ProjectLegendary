@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3aa52ce79b85a0c449f8d44366bbc818, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.759434, b: 0.9776596, a: 0.9137255}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   delay: 0
   isHoming: 0
   homingPower: 0.01
-  isMultiHit: 0
+  isMultiHit: 1
   subProjectile: {fileID: 0}
   isExplosive: 0
   explosiveDamage: 5
