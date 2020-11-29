@@ -95,6 +95,13 @@ public class MorriganBossController : MonoBehaviour
     float rangeMod = 0; // is added to distance ranges when attempting a lunge attack
                         //  public float timerIE = 0.1f;
     bool sideMoveRight = true;
+
+    [Header("Effect Settings")]
+    public GameObject[] fpEffSt1;
+    public GameObject[] fpEffSt2;
+    public GameObject[] fpEffSt3;
+    public GameObject effectBurstSwitch;
+
     #endregion
 
 
@@ -206,6 +213,12 @@ public class MorriganBossController : MonoBehaviour
 
             case 1:
                 coolDown -= 1 * Time.deltaTime;
+
+                for (int i = 0; i < fpEffSt1.Length; i++) fpEffSt1[i].SetActive(true);
+                for (int i = 0; i < fpEffSt2.Length; i++) fpEffSt2[i].SetActive(false);
+                for (int i = 0; i < fpEffSt3.Length; i++) fpEffSt3[i].SetActive(false);
+
+
                 if (coolDown < 0)
                 {
                     for (int i = 0; i < firePointsStage1.Length; i++)      // Standard Foward Spray Attack
@@ -218,10 +231,16 @@ public class MorriganBossController : MonoBehaviour
                 
 
                 break;
+                
 
             case 2:         // Charge up Burst
 
                 coolDown -= 1 * Time.deltaTime;
+
+                for (int i = 0; i < fpEffSt1.Length; i++) fpEffSt1[i].SetActive(false);
+                for (int i = 0; i < fpEffSt2.Length; i++) fpEffSt2[i].SetActive(true);
+                for (int i = 0; i < fpEffSt3.Length; i++) fpEffSt3[i].SetActive(false);
+
                 if (coolDown < 0)
                 {
                     
@@ -245,6 +264,11 @@ public class MorriganBossController : MonoBehaviour
             case 3:         // Accelerator Bullets
 
                 coolDown -= 1 * Time.deltaTime;
+
+                for (int i = 0; i < fpEffSt1.Length; i++) fpEffSt1[i].SetActive(false);
+                for (int i = 0; i < fpEffSt2.Length; i++) fpEffSt2[i].SetActive(false);
+                for (int i = 0; i < fpEffSt3.Length; i++) fpEffSt3[i].SetActive(true);
+
                 if (coolDown < 0)
                 {
                     for (int i = 0; i < firePointsStage3.Length; i++)
@@ -283,6 +307,11 @@ public class MorriganBossController : MonoBehaviour
             case 1:
 
                 coolDown -= 1 * Time.deltaTime;
+
+                for (int i = 0; i < fpEffSt1.Length; i++) fpEffSt1[i].SetActive(false);
+                for (int i = 0; i < fpEffSt2.Length; i++) fpEffSt2[i].SetActive(false);
+                for (int i = 0; i < fpEffSt3.Length; i++) fpEffSt3[i].SetActive(false);
+
                 if (coolDown < 1 && coolDown > 0.9)
                 {
                     myAnim.SetBool("Spear", true);
@@ -305,6 +334,11 @@ public class MorriganBossController : MonoBehaviour
                 
 
                 coolDown -= 1 * Time.deltaTime;
+
+                for (int i = 0; i < fpEffSt1.Length; i++) fpEffSt1[i].SetActive(false);
+                for (int i = 0; i < fpEffSt2.Length; i++) fpEffSt2[i].SetActive(false);
+                for (int i = 0; i < fpEffSt3.Length; i++) fpEffSt3[i].SetActive(false);
+
                 if (coolDown < 1 && coolDown > 0.9)
                 {
                     myAnim.SetBool("Stab", true);
