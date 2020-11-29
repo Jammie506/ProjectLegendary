@@ -523,6 +523,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossUnit
       objectReference: {fileID: 0}
+    - target: {fileID: 5854598745106923126, guid: 1b34a5995435ea8499cd36f5906a4e11, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5854598745106923127, guid: 1b34a5995435ea8499cd36f5906a4e11, type: 3}
       propertyPath: m_RootOrder
       value: 1
