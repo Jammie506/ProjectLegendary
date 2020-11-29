@@ -149,6 +149,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         dodging = false;
+        yield return new WaitForSeconds(0.1f);
         myCollider.enabled = true;
     }
 

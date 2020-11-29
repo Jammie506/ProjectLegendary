@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Animation Test.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/JamieTest.unity
-    guid: 0618784e315d6457291e43b448ef4f44
+    path: Assets/Scenes/Game Scene.unity
+    guid: 14c8fba3c2e7fa14f81a80136c63f5b1
   - enabled: 1
     path: Assets/Scenes/GameOve.unity
     guid: 1257367fbea144d548b15f6908841c08
+  - enabled: 1
+    path: Assets/Scenes/GameWin.unity
+    guid: 369401a72a5ce4b4ab2e6d2a79982039
   m_configObjects: {}
