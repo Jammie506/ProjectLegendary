@@ -19,9 +19,13 @@ public class ProjectileSys : MonoBehaviour
             speed = Random.Range(minSpeed, maxSpeed);
         }
 
+        // Misc
+
+
     }
 
     private Collider2D myCollider;
+    
 
     [Header("Settings")]
     public int damage = 10;
@@ -43,6 +47,8 @@ public class ProjectileSys : MonoBehaviour
 
     [Header("Effects")]
     public GameObject[] effectOnHit;
+    [SerializeField]
+    private Transform[] getChildren;
 
 
     // Update is called once per frame
@@ -187,5 +193,18 @@ public class ProjectileSys : MonoBehaviour
             Instantiate(effectOnHit[i], transform.position, transform.localRotation * Quaternion.Euler(90,0,0));
         }
         */
+
+        foreach(Transform effectTrans in transform)
+        {
+            // Finds ANY child objects on the parent object and picks out objects with "Effect" tag to remove the parenting on death, so the effect won't abruptly die
+            if (effectTrans.CompareTag("Effect"))
+            {
+ 
+                effectTrans.gameObject.transform.parent = null;
+            }
+
+        }
+
+
     }
 }

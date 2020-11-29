@@ -60,29 +60,23 @@ public class MorriganBossController : MonoBehaviour
 
     }
 
+    private bool rotateToPlayer = true;
+    private float rotCooldown = 0;
+    private bool lungeAttack = false;
     void Movement()
     {
         Vector2 getDist = myTarget.transform.position - transform.position; // GETS THE DISTANCE BETWEEN THE OBJECT AND PLAYER
         distToTarget = getDist.sqrMagnitude;    // TURNS IT INTO USEABLE FLOAT VALUE
 
-    //    Debug.Log(distToTarget);
+        //    Debug.Log(distToTarget);
 
-        transform.right = myTarget.transform.position - transform.position;     // makes the right side to look at the target (make sure all object's Z pos is on 0)
+        if (rotateToPlayer)
+        {
+            transform.right = myTarget.transform.position - transform.position;     // makes the right side to look at the target (make sure all object's Z pos is on 0)
+        }
+        
 
-        if (distToTarget > distOuter)   // Outer
-        {
-            myRB.AddRelativeForce(Vector2.right * speed * Time.deltaTime,ForceMode2D.Force);
-            isAttackRange = true;
-        }
-        else if (distToTarget < distOuter && distToTarget > distInner)  // Middle
-        {
-            isAttackRange = false;
-        }
-        else if (distToTarget < distInner)
-        {
-            myRB.AddRelativeForce(Vector2.right * -speed * Time.deltaTime,ForceMode2D.Force);
-            isAttackRange = false;
-        }
+        
         
 
     }
@@ -97,8 +91,8 @@ public class MorriganBossController : MonoBehaviour
     bool isAttackRange = true;
     public int minAttackMode, maxAttackMode;                                      // Set a limit when moving up boss stages (RANGE)
     int bossStage = 0;
-    
-  //  public float timerIE = 0.1f;
+    float rangeMod = 0; // is added to distance ranges when attempting a lunge attack
+                        //  public float timerIE = 0.1f;
 
     #endregion
 
@@ -108,17 +102,54 @@ public class MorriganBossController : MonoBehaviour
 
         if (isDead == true) return;
 
+        if (rotateToPlayer != true)
+        {
+            rotCooldown -= 1 * Time.deltaTime;
+            if (rotCooldown < 0)
+            {
+                rotateToPlayer = true;
+                myRB.drag = 1f;
+            }
+                
+        }
+
+
+        float distO = distOuter + rangeMod;
+        float distI = distInner + rangeMod;
+
+        if (distToTarget > distO)   // Outer
+        {
+            myRB.AddRelativeForce(Vector2.right * speed * Time.deltaTime, ForceMode2D.Force);
+            isAttackRange = true;
+        }
+        else if (distToTarget < distO && distToTarget > distI)  // Middle
+        {
+            isAttackRange = false;
+        }
+        else if (distToTarget < distI)
+        {
+            myRB.AddRelativeForce(Vector2.right * -speed * Time.deltaTime, ForceMode2D.Force);
+            isAttackRange = false;
+        }
+
 
         // Choose Attack
-        if (isAttackRange)
+
+
+        if (isAttackRange && lungeAttack != true)
         {
             Debug.Log("RANGE");
             LaunchAttackPatternsRange();
         }
-        else
+        else if (lungeAttack != true)
         {
             Debug.Log("MELEE");
-            LaunchAttackPatternMelee();
+            LaunchAttackPatternMelee(1);
+        }
+        else
+        {
+            Debug.Log("LUNGE");
+            LaunchAttackPatternMelee(2);
         }
 
 
@@ -128,11 +159,19 @@ public class MorriganBossController : MonoBehaviour
     {
         while (true)
         {
-            coolDown = 2.5f;
+            myRB.drag = 1f;
+            coolDown = 3.5f;
             attackModeRange++;
             if (attackModeRange > maxAttackMode) attackModeRange = minAttackMode; // reset to min value
 
-            attackModeMelee = Random.Range(1, 3);       // Melee Attacks are Randomized
+            int rng = Random.Range(0,5);
+            if (rng > 2)
+            {
+                rangeMod = 100f;
+                lungeAttack = true;
+            }
+
+        //    attackModeMelee = Random.Range(1, 3);       // Melee Attacks are Randomized REVAMPED
 
             yield return new WaitForSeconds(7.5f);
         }
@@ -154,6 +193,7 @@ public class MorriganBossController : MonoBehaviour
                     {
                         Instantiate(attacksTypes[0], firePointsStage1[i].transform.position, firePointsStage1[i].transform.rotation);
                     }
+                    myRB.drag = 1.5f;
                     coolDown = 0.25f;
                 }
                 
@@ -175,7 +215,7 @@ public class MorriganBossController : MonoBehaviour
 
 
                     }
-
+                    myRB.drag = 1.5f;
                     coolDown = 2.5f;
                 }
 
@@ -192,6 +232,7 @@ public class MorriganBossController : MonoBehaviour
                     {
                         Instantiate(attacksTypes[2], firePointsStage3[i].transform.position, firePointsStage3[i].transform.rotation);
                     }
+                    myRB.drag = 2f;
                     coolDown = 0.5f;
                 }
                 
@@ -214,9 +255,9 @@ public class MorriganBossController : MonoBehaviour
     }
 
 
-    void LaunchAttackPatternMelee()
+    void LaunchAttackPatternMelee(int chooseAttack)
     {
-
+        attackModeMelee = chooseAttack;
         switch (attackModeMelee)
         {
 
@@ -228,6 +269,7 @@ public class MorriganBossController : MonoBehaviour
                     GameObject sweep = Instantiate(attacksTypes[3], transform.position, transform.rotation * Quaternion.Euler(0, 0, -60));
                     sweep.transform.parent = gameObject.transform;
 
+                    myRB.drag = 0.5f;
                     coolDown = 2.5f;
                 }
 
@@ -241,10 +283,16 @@ public class MorriganBossController : MonoBehaviour
                 coolDown -= 1 * Time.deltaTime;
                 if (coolDown < 0)
                 {
+                    rotateToPlayer = false;
+                    myRB.AddRelativeForce(Vector2.right * speed/5,ForceMode2D.Impulse);
                     GameObject lunge = Instantiate(attacksTypes[4], transform.position, transform.rotation);
                     lunge.transform.parent = gameObject.transform;
 
+                    rangeMod = 0f;
+                    lungeAttack = false;
+                    rotCooldown = 2.5f;
                     coolDown = 2.5f;
+                    myRB.drag = 5;
                 }
 
                 break;

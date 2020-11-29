@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3906417218070741307}
   - component: {fileID: 3906417218070741304}
   - component: {fileID: 3906417218070741305}
-  - component: {fileID: 3906417218070741286}
   m_Layer: 10
   m_Name: ThrustMelee
   m_TagString: Untagged
@@ -128,7 +127,7 @@ MonoBehaviour:
   randomSpeed: 0
   minSpeed: 1
   maxSpeed: 5
-  lifetime: 0.5
+  lifetime: 3
   delay: 0
   isHoming: 0
   homingPower: 0.01
@@ -141,27 +140,6 @@ MonoBehaviour:
   rampStrength: 1
   effectOnHit:
   - {fileID: 739848033475834709, guid: 97e66d2424c1c494886b27a25790df75, type: 3}
---- !u!50 &3906417218070741286
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3906417218070741284}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &3906417218879377533
 GameObject:
   m_ObjectHideFlags: 0
