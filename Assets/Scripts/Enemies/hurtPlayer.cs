@@ -6,26 +6,33 @@ using UnityEngine.SceneManagement;
 
 public class hurtPlayer : MonoBehaviour
 {
-    public float timer = 5;
-    public GameObject enemy;
+    Animator anim;
+
+    public int damage;
+    public float delay;
+
+    private float timer = 0;
 
     private void Start()
     {
-        enemy.GetComponent<Animator>();
+        anim = GetComponentInParent<Animator>();
     }
 
     private void Update()
     {
-        timer += Time.deltaTime;
+        if(timer < delay)
+        {
+            timer += Time.deltaTime;
+        }
     }
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.collider.tag == "Player" && timer >= 5)
+        if (other.collider.tag == "Player" && timer >= delay)
         {
             //enemy.GetComponent<Animator>().SetBool("isAttack", true);
-            
-            other.gameObject.GetComponent<healthManager>().HurtPlayer(10);
+
+            other.gameObject.GetComponent<HealthSys>().health -= damage;
             timer = 0;
         }
         else

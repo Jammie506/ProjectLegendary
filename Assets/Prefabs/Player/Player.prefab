@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 88560543756709322}
   - component: {fileID: 88560543756709323}
+  - component: {fileID: 2915346694504266363}
   - component: {fileID: 88560543756709316}
   - component: {fileID: 8683496312726749314}
   - component: {fileID: 6831710503359297725}
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 184a7496e4b4f2a4fb70722b12e1568c, type: 3}
+  m_Sprite: {fileID: -2956616211699239020, guid: 7b6671cd540d0dc4294d7d1d6d0e543e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -90,6 +91,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &2915346694504266363
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88560543756709320}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!58 &88560543756709316
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -137,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97df20952b36d9c4a955a3634c0e6e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 50
   isDead: 0
 --- !u!114 &2232203951996965480
 MonoBehaviour:
@@ -203,12 +225,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swipe: {fileID: 4361586193075201753, guid: b54b1b4f5a3f434469f5567a16d341af, type: 3}
   stab: {fileID: 4238537273358979315, guid: 28de76bb0f6e9a44e9fff6d3e179c55d, type: 3}
-  swipeDamage: 2
-  stabDamage: 4
-  hulkDamage: 5
-  swipeInterval: 0.15
-  stabInterval: 0.2
-  hulkInterval: 0.15
+  smash: {fileID: 0}
+  swipeDamage: 10
+  stabDamage: 15
+  hulkDamage: 20
   isAttacking: 0
 --- !u!1 &4402008271314455653
 GameObject:

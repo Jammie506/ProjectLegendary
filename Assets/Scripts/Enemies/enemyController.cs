@@ -22,6 +22,7 @@ public class enemyController : MonoBehaviour
         //enemyAnim = GetComponent<Animator>();
 
         rB = this.GetComponent<Rigidbody2D>();
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Update()
