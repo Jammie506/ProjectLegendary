@@ -283,9 +283,9 @@ public class MorriganBossController : MonoBehaviour
             case 1:
 
                 coolDown -= 1 * Time.deltaTime;
-                if (coolDown < 0.5)
+                if (coolDown < 1 && coolDown > 0.9)
                 {
-                    myAnim.SetBool("Sweep",true);
+                    myAnim.SetBool("Spear", true);
                 }
 
                 if (coolDown < 0)
@@ -305,7 +305,7 @@ public class MorriganBossController : MonoBehaviour
                 
 
                 coolDown -= 1 * Time.deltaTime;
-                if (coolDown < 0.5)
+                if (coolDown < 1 && coolDown > 0.9)
                 {
                     myAnim.SetBool("Stab", true);
                 }
