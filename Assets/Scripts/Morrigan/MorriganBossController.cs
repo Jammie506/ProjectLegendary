@@ -111,7 +111,7 @@ public class MorriganBossController : MonoBehaviour
                 rotateToPlayer = true;
                 myRB.drag = 1f;
             }
-                
+            
         }
 
 
@@ -122,10 +122,12 @@ public class MorriganBossController : MonoBehaviour
         {
             myRB.AddRelativeForce(Vector2.right * speed * Time.deltaTime, ForceMode2D.Force);
             isAttackRange = true;
+            myAnim.SetBool("Moving",true);
         }
         else if (distToTarget < distO && distToTarget > distI)  // Middle
         {
             isAttackRange = false;
+            myAnim.SetBool("Moving", false);
             if (sideMoveRight)      // NOTE: Right is the new forward, sidemove is UP and DOWN on the local Y Axis
             {
                 myRB.AddRelativeForce((Vector2.up * speed / 2) * Time.deltaTime, ForceMode2D.Force);
@@ -139,6 +141,7 @@ public class MorriganBossController : MonoBehaviour
         {
             myRB.AddRelativeForce(Vector2.right * -speed * Time.deltaTime, ForceMode2D.Force);
             isAttackRange = false;
+            myAnim.SetBool("Moving", true);
         }
 
 
@@ -221,7 +224,7 @@ public class MorriganBossController : MonoBehaviour
                 coolDown -= 1 * Time.deltaTime;
                 if (coolDown < 0)
                 {
-
+                    
                     for (int i = 0; i < firePointsStage2.Length; i++)
                     {
                         for (int j = 0; j < 20; j++)
@@ -280,6 +283,11 @@ public class MorriganBossController : MonoBehaviour
             case 1:
 
                 coolDown -= 1 * Time.deltaTime;
+                if (coolDown < 0.5)
+                {
+                    myAnim.SetBool("Sweep",true);
+                }
+
                 if (coolDown < 0)
                 {
                     GameObject sweep = Instantiate(attacksTypes[3], transform.position, transform.rotation * Quaternion.Euler(0, 0, -60));
@@ -297,6 +305,11 @@ public class MorriganBossController : MonoBehaviour
                 
 
                 coolDown -= 1 * Time.deltaTime;
+                if (coolDown < 0.5)
+                {
+                    myAnim.SetBool("Stab", true);
+                }
+
                 if (coolDown < 0)
                 {
                     rotateToPlayer = false;
