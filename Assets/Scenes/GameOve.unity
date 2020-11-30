@@ -242,7 +242,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4.6697645
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -299,14 +299,14 @@ RectTransform:
   m_GameObject: {fileID: 827590237}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 0.21462, y: 0.21462, z: 0.10731}
   m_Children: []
   m_Father: {fileID: 1116417829}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -19, y: -3}
+  m_AnchoredPosition: {x: -640, y: -316}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &827590239
@@ -342,7 +342,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Bitch
+  m_Text: 'Game
+
+    Over'
 --- !u!222 &827590240
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -419,7 +421,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 790130419}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
