@@ -140,7 +140,7 @@ MonoBehaviour:
   explosiveDamage: 5
   radius: 5
   isRampUp: 1
-  rampStrength: 10
+  rampStrength: 5
   effectOnHit:
   - {fileID: 739848033475834709, guid: 97e66d2424c1c494886b27a25790df75, type: 3}
   getChildren: []
