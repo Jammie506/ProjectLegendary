@@ -12,6 +12,7 @@ public class PlayerAttacks : MonoBehaviour
     public GameObject swipe, stab, smash;
 
     public int swipeDamage, stabDamage, hulkDamage; //how much damage each attack type should do
+    public int hulkHealing;
     public bool isAttacking; //prevents attack spamming
 
     private void Start()
@@ -68,6 +69,13 @@ public class PlayerAttacks : MonoBehaviour
             //hulk attack
             GameObject hulkAttack = Instantiate(smash, attackSpawn.position, attackSpawn.rotation);
             hulkAttack.GetComponent<ProjectileSys>().damage = damage;
+            HulkHeal();
+
         }
+    }
+
+    void HulkHeal()
+    {
+        GetComponent<HealthSys>().health += hulkHealing;
     }
 }

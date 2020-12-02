@@ -24,6 +24,7 @@ public class HealthSys : MonoBehaviour
         {
             if (gameObject.CompareTag("Enemy"))
             {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHulkMode>().hulkCharge++;
                 Destroy(gameObject);
             }
             else if (gameObject.CompareTag("Player"))
