@@ -19,6 +19,6 @@ public class PlayerUI : MonoBehaviour
     private void Update()
     {
         hp.text = "HP: " + player.GetComponent<HealthSys>().health;
-        hulkCharge.text = "Charge: " + player.GetComponent<PlayerHulkMode>().hulkCharge;
+        hulkCharge.text = "Charge: " + player.GetComponent<PlayerHulkMode>().hulkCharge + "/" + player.GetComponent<PlayerHulkMode>().maxCharge;
     }
 }
