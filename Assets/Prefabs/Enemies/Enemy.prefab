@@ -86,7 +86,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 25
+  isOnHitInvinc: 0
+  onHitCooldownMax: 0.5
   isDead: 0
+  deathEffect: {fileID: 9211548241633250355, guid: b70628d76898cac419692d301cd76cd0, type: 3}
+  HitCool: 0
+  isHit: 0
 --- !u!114 &2105735774624370420
 MonoBehaviour:
   m_ObjectHideFlags: 0

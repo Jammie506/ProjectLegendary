@@ -121,9 +121,23 @@ public class ProjectileSys : MonoBehaviour
         {
 
 
+
             HealthSys otherHP = collision.collider.GetComponent<HealthSys>();
 
-            otherHP.health -= damage;
+            if (otherHP.isOnHitInvinc == true && otherHP.isHit != true)
+            {
+                otherHP.health -= damage;
+
+                otherHP.HitCool = otherHP.onHitCooldownMax;
+                otherHP.isHit = true;
+            }
+            
+            if (otherHP.isOnHitInvinc == false)
+            {
+                otherHP.health -= damage;
+            }
+
+        //    otherHP.health -= damage;
             Debug.Log("HIT");
 
         }
@@ -150,7 +164,20 @@ public class ProjectileSys : MonoBehaviour
 
                 HealthSys otherHP = other.GetComponent<HealthSys>();
 
-                otherHP.health -= damage;
+                if (otherHP.isOnHitInvinc == true && otherHP.isHit != true)
+                {
+                    otherHP.health -= damage;
+
+                    otherHP.HitCool = otherHP.onHitCooldownMax;
+                    otherHP.isHit = true;
+                }
+                
+                if (otherHP.isOnHitInvinc == false)     // do damage without incurring invincibility
+                {
+                    otherHP.health -= damage;
+                }
+
+                
 
             }
 

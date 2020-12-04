@@ -5,11 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class HealthSys : MonoBehaviour
 {
+    [Header("Settings")]
+
     public int health;
+    public bool isOnHitInvinc;            // short invincibility when hit?
+    public float onHitCooldownMax = 0.5f;
     public bool isDead;
+
+    [Header("Effect Settings")]
+    public GameObject deathEffect;
+
+    [HideInInspector]
+    public float HitCool;
+
+    public bool isHit;
 
     void Update()
     {
+        HitCooldown();
         onDeath();
     }
 
@@ -25,7 +38,9 @@ public class HealthSys : MonoBehaviour
             if (gameObject.CompareTag("Enemy"))
             {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHulkMode>().hulkCharge++;
-                Destroy(gameObject);
+                if (deathEffect != null) Instantiate(deathEffect, transform.position, Quaternion.identity);
+
+                Destroy(gameObject);    // Destroy Gameobject is placeholder
             }
             else if (gameObject.CompareTag("Player"))
             {
@@ -33,4 +48,12 @@ public class HealthSys : MonoBehaviour
             }
         }
     }
+
+    void HitCooldown()
+    {
+        if (isHit == true) HitCool -= 1 * Time.deltaTime;
+
+        if (HitCool <= 0) isHit = false;
+    }
+
 }
