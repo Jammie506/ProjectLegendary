@@ -366,6 +366,7 @@ MonoBehaviour:
   hit: {fileID: 8300000, guid: ef4959ecd4537934dafe5353dc1e790e, type: 3}
   dodge: {fileID: 8300000, guid: 3007bf79b1179754591c64aad6b17bd9, type: 3}
   getHit: {fileID: 8300000, guid: 7526b8beb63dda648bf365d74523509a, type: 3}
+  knockBack: {fileID: 8300000, guid: acf71301c3a603944aae19f256b945e5, type: 3}
 --- !u!1 &4402008271314455653
 GameObject:
   m_ObjectHideFlags: 0

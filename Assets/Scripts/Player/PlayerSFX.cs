@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerSFX : MonoBehaviour
 {
-    public AudioClip attack, hit, dodge, getHit;
+    public AudioClip attack, hit, dodge, getHit, knockBack;
     private AudioSource source;
 
     private void Start()
@@ -30,5 +30,10 @@ public class PlayerSFX : MonoBehaviour
     public void PlayGetHit()
     {
         source.PlayOneShot(getHit);
+    }
+
+    public void PlayKnockBack()
+    {
+        source.PlayOneShot(knockBack);
     }
 }

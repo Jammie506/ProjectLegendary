@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerKnockbackAttack : MonoBehaviour
 {
     private Animator anim;
+    private PlayerSFX PS;
 
     public float knockbackForce, knockbackRange, knockbackCooldown;
     public bool ready;
@@ -17,6 +18,7 @@ public class PlayerKnockbackAttack : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
+        PS = GetComponent<PlayerSFX>();
 
         LayerMask mask = LayerMask.GetMask("Enemy");
         filter.SetLayerMask(mask);
@@ -36,6 +38,7 @@ public class PlayerKnockbackAttack : MonoBehaviour
         {
             GetEnemies();
             PushEnemies();
+            PS.PlayKnockBack();
             CooldownTimer();
         }
     }
