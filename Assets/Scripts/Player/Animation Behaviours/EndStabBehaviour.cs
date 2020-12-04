@@ -11,7 +11,7 @@ public class EndStabBehaviour : StateMachineBehaviour
         PlayerSFX PS = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSFX>();
         animator.SetBool("Stab", false);
         PA.Damage(PA.stabDamage);
-        PS.PlaySwipe();
+        PS.PlayAttack();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

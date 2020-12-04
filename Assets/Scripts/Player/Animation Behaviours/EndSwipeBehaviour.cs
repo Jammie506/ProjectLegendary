@@ -11,7 +11,7 @@ public class EndSwipeBehaviour : StateMachineBehaviour
         PlayerSFX PS = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSFX>();
         animator.SetBool("Swipe", false);
         PA.Damage(PA.swipeDamage);
-        PS.PlaySwipe();
+        PS.PlayAttack();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

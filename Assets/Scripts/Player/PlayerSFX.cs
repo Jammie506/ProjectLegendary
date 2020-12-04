@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerSFX : MonoBehaviour
 {
-    public AudioClip swipe, stab, dodge, hit;
+    public AudioClip attack, hit, dodge, getHit;
     private AudioSource source;
 
     private void Start()
@@ -12,14 +12,14 @@ public class PlayerSFX : MonoBehaviour
         source = GetComponent<AudioSource>();
     }
 
-    public void PlaySwipe()
+    public void PlayAttack()
     {
-        source.PlayOneShot(swipe);
+        source.PlayOneShot(attack);
     }
 
-    public void PlayStab()
+    public void PlayHit()
     {
-        source.PlayOneShot(stab);
+        source.PlayOneShot(hit);
     }
 
     public void PlayDodge()
@@ -27,8 +27,8 @@ public class PlayerSFX : MonoBehaviour
         source.PlayOneShot(dodge);
     }
 
-    public void PlayHit()
+    public void PlayGetHit()
     {
-        source.PlayOneShot(hit);
+        source.PlayOneShot(getHit);
     }
 }

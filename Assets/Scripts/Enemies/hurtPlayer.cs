@@ -35,7 +35,7 @@ public class hurtPlayer : MonoBehaviour
             //enemy.GetComponent<Animator>().SetBool("isAttack", true);
 
             other.gameObject.GetComponent<HealthSys>().health -= damage;
-            PS.PlayHit();
+            PS.PlayGetHit();
             timer = 0;
         }
         else

@@ -243,11 +243,11 @@ public class ProjectileSys : MonoBehaviour
     {
         if (HP.gameObject.CompareTag("Enemy"))
         {
-            PSFX.PlayStab();
+            PSFX.PlayHit();
         }
         else if (HP.gameObject.CompareTag("Player"))
         {
-            PSFX.PlayHit();
+            PSFX.PlayGetHit();
         }
     }
 }
