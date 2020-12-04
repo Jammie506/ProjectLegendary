@@ -12,7 +12,6 @@ public class BossHealthUI : MonoBehaviour
     {
         bossHealth = GameObject.Find("BossUnit").GetComponent<HealthSys>();
         hp = GetComponent<Text>();
-        Debug.Log(hp);
     }
 
     private void Update()

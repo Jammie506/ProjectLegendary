@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class hurtPlayer : MonoBehaviour
 {
     Animator anim;
+    PlayerSFX PS;
 
     public int damage;
     public float delay;
@@ -16,6 +17,7 @@ public class hurtPlayer : MonoBehaviour
     private void Start()
     {
         anim = GetComponentInParent<Animator>();
+        PS = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSFX>();
     }
 
     private void Update()
@@ -33,6 +35,7 @@ public class hurtPlayer : MonoBehaviour
             //enemy.GetComponent<Animator>().SetBool("isAttack", true);
 
             other.gameObject.GetComponent<HealthSys>().health -= damage;
+            PS.PlayHit();
             timer = 0;
         }
         else

@@ -8,8 +8,10 @@ public class EndStabBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         PlayerAttacks PA = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttacks>();
+        PlayerSFX PS = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSFX>();
         animator.SetBool("Stab", false);
         PA.Damage(PA.stabDamage);
+        PS.PlaySwipe();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

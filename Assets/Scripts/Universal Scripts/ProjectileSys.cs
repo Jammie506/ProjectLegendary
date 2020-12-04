@@ -11,6 +11,7 @@ public class ProjectileSys : MonoBehaviour
     {
         Physics2D.IgnoreLayerCollision(10,10);
         myCollider = GetComponent<Collider2D>();
+        PSFX = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSFX>();
         if (isMultiHit) myCollider.isTrigger = true;
         else myCollider.isTrigger = false;
 
@@ -25,6 +26,7 @@ public class ProjectileSys : MonoBehaviour
     }
 
     private Collider2D myCollider;
+    private PlayerSFX PSFX;
     
 
     [Header("Settings")]
@@ -127,7 +129,7 @@ public class ProjectileSys : MonoBehaviour
             if (otherHP.isOnHitInvinc == true && otherHP.isHit != true)
             {
                 otherHP.health -= damage;
-
+                HitSound(otherHP);
                 otherHP.HitCool = otherHP.onHitCooldownMax;
                 otherHP.isHit = true;
             }
@@ -135,6 +137,7 @@ public class ProjectileSys : MonoBehaviour
             if (otherHP.isOnHitInvinc == false)
             {
                 otherHP.health -= damage;
+                HitSound(otherHP);
             }
 
         //    otherHP.health -= damage;
@@ -167,7 +170,7 @@ public class ProjectileSys : MonoBehaviour
                 if (otherHP.isOnHitInvinc == true && otherHP.isHit != true)
                 {
                     otherHP.health -= damage;
-
+                    HitSound(otherHP);
                     otherHP.HitCool = otherHP.onHitCooldownMax;
                     otherHP.isHit = true;
                 }
@@ -175,6 +178,7 @@ public class ProjectileSys : MonoBehaviour
                 if (otherHP.isOnHitInvinc == false)     // do damage without incurring invincibility
                 {
                     otherHP.health -= damage;
+                    HitSound(otherHP);
                 }
 
                 
@@ -233,5 +237,17 @@ public class ProjectileSys : MonoBehaviour
         }
 
 
+    }
+
+    void HitSound(HealthSys HP)
+    {
+        if (HP.gameObject.CompareTag("Enemy"))
+        {
+            PSFX.PlayStab();
+        }
+        else if (HP.gameObject.CompareTag("Player"))
+        {
+            PSFX.PlayHit();
+        }
     }
 }
