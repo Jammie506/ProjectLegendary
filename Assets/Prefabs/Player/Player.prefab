@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 2519829903938742112}
   - component: {fileID: 3634806438937205303}
   - component: {fileID: 6732393658826999922}
+  - component: {fileID: 5288955063495193876}
+  - component: {fileID: 3319915441027255808}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -367,6 +369,36 @@ MonoBehaviour:
   dodge: {fileID: 8300000, guid: 3007bf79b1179754591c64aad6b17bd9, type: 3}
   getHit: {fileID: 8300000, guid: 7526b8beb63dda648bf365d74523509a, type: 3}
   knockBack: {fileID: 8300000, guid: acf71301c3a603944aae19f256b945e5, type: 3}
+--- !u!114 &5288955063495193876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88560543756709320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 494ad1e2819db944596edfe9db729df9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCamPos: {fileID: 0}
+  shakeStrength: 1
+  fallOff: 2
+--- !u!114 &3319915441027255808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88560543756709320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c351d748e4cb7a439e428ac2b2c0471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myFlashImage: {fileID: 0}
+  myVlambeer: {fileID: 5288955063495193876}
+  myHitEffect: {fileID: 0}
 --- !u!1 &4402008271314455653
 GameObject:
   m_ObjectHideFlags: 0
