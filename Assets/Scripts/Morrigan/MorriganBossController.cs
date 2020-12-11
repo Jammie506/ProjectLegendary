@@ -95,6 +95,9 @@ public class MorriganBossController : MonoBehaviour
     float rangeMod = 0; // is added to distance ranges when attempting a lunge attack
                         //  public float timerIE = 0.1f;
     bool sideMoveRight = true;
+    public bool canRetreat = false;
+    public bool retreatNow = false;
+    public float timeToDis;
 
     [Header("Effect Settings")]
     public GameObject[] fpEffSt1;
@@ -121,35 +124,49 @@ public class MorriganBossController : MonoBehaviour
             
         }
 
+        if (canRetreat == true && getBossHealth.health < getBossHealth.maxHealth/3) // To not let boss die in demo or mid game
+        {
+            retreatNow = true;
+        }
+        
 
         float distO = distOuter + rangeMod;
         float distI = distInner + rangeMod;
 
-        if (distToTarget > distO)   // Outer
+        if (retreatNow != true)
         {
-            myRB.AddRelativeForce(Vector2.right * speed * Time.deltaTime, ForceMode2D.Force);
-            isAttackRange = true;
-            myAnim.SetBool("Moving",true);
-        }
-        else if (distToTarget < distO && distToTarget > distI)  // Middle
-        {
-            isAttackRange = false;
-            myAnim.SetBool("Moving", false);
-            if (sideMoveRight)      // NOTE: Right is the new forward, sidemove is UP and DOWN on the local Y Axis
+            if (distToTarget > distO)   // Outer    // Start of follow code
             {
-                myRB.AddRelativeForce((Vector2.up * speed / 2) * Time.deltaTime, ForceMode2D.Force);
+                myRB.AddRelativeForce(Vector2.right * speed * Time.deltaTime, ForceMode2D.Force);
+                isAttackRange = true;
+                myAnim.SetBool("Moving", true);
             }
-            else
+            else if (distToTarget < distO && distToTarget > distI)  // Middle
             {
-                myRB.AddRelativeForce((Vector2.down * speed / 2) * Time.deltaTime, ForceMode2D.Force);
+                isAttackRange = false;
+                myAnim.SetBool("Moving", false);
+                if (sideMoveRight)      // NOTE: Right is the new forward, sidemove is UP and DOWN on the local Y Axis
+                {
+                    myRB.AddRelativeForce((Vector2.up * speed / 2) * Time.deltaTime, ForceMode2D.Force);
+                }
+                else
+                {
+                    myRB.AddRelativeForce((Vector2.down * speed / 2) * Time.deltaTime, ForceMode2D.Force);
+                }
             }
+            else if (distToTarget < distI)
+            {
+                myRB.AddRelativeForce(Vector2.right * -speed * Time.deltaTime, ForceMode2D.Force);
+                isAttackRange = false;
+                myAnim.SetBool("Moving", true);
+            }
+
         }
-        else if (distToTarget < distI)
+        else if (retreatNow == true)
         {
             myRB.AddRelativeForce(Vector2.right * -speed * Time.deltaTime, ForceMode2D.Force);
-            isAttackRange = false;
-            myAnim.SetBool("Moving", true);
         }
+        
 
 
         // Choose Attack
@@ -206,7 +223,7 @@ public class MorriganBossController : MonoBehaviour
 
     void LaunchAttackPatternsRange()
     {
-
+        if (retreatNow == true) return;
 
         switch (attackModeRange)
         {

@@ -8,6 +8,7 @@ public class HealthSys : MonoBehaviour
     [Header("Settings")]
 
     public int health;
+    public int maxHealth = 100;
     public bool isOnHitInvinc;            // short invincibility when hit?
     public float onHitCooldownMax = 0.5f;
     public bool isDead;
