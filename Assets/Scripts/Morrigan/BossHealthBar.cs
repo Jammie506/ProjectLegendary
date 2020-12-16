@@ -17,8 +17,7 @@ public class BossHealthBar : MonoBehaviour
     public float baseWidth;
     public float width;
 
-
-    private void Start()
+    private void Awake()
     {
         boss = GameObject.Find("BossUnit");
         bossHealth = boss.GetComponent<HealthSys>();
@@ -38,7 +37,10 @@ public class BossHealthBar : MonoBehaviour
 
     void CheckHealth()
     {
-        currentHealth = bossHealth.health;
+        if(bossHealth != null)
+        {
+            currentHealth = bossHealth.health;
+        }
     }
 
     void DisplayBar()
