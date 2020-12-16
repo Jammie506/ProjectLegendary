@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  maxHealth: 100
   isOnHitInvinc: 1
   onHitCooldownMax: 0.5
   isDead: 0
@@ -240,8 +241,8 @@ MonoBehaviour:
   stab: {fileID: 4238537273358979315, guid: 28de76bb0f6e9a44e9fff6d3e179c55d, type: 3}
   smash: {fileID: 4361586193075201753, guid: 9b21c95af7f74bc41bb50fc3a613cc98, type: 3}
   swipeDamage: 10
-  stabDamage: 15
-  hulkDamage: 20
+  stabDamage: 20
+  hulkDamage: 30
   hulkHealing: 5
   isAttacking: 0
 --- !u!114 &2519829903938742112
@@ -399,6 +400,7 @@ MonoBehaviour:
   myFlashImage: {fileID: 0}
   myVlambeer: {fileID: 5288955063495193876}
   myHitEffect: {fileID: 0}
+  myHitAudio: {fileID: 0}
 --- !u!1 &4402008271314455653
 GameObject:
   m_ObjectHideFlags: 0
