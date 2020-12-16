@@ -46,7 +46,13 @@ public class PlayerAttacks : MonoBehaviour
         {
             //play hulk attack animation
             isAttacking = true;
-            anim.SetBool("Smash", true);
+            anim.SetBool("Smash1", true);
+        }
+        else if (Input.GetButtonDown("Fire2") && !isAttacking && !pMove.dodging && hulk.isHulk)
+        {
+            //play hulk attack animation
+            isAttacking = true;
+            anim.SetBool("Smash2", true);
         }
         //animation behaviour scripts handle the rest
     }

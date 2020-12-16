@@ -9,7 +9,8 @@ public class EndSmashBehaviour : StateMachineBehaviour
     {
         PlayerAttacks PA = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttacks>();
         PlayerSFX PS = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSFX>();
-        animator.SetBool("Smash", false);
+        animator.SetBool("Smash1", false);
+        animator.SetBool("Smash2", false);
         PA.Damage(PA.hulkDamage);
         PS.PlayAttack();
     }
