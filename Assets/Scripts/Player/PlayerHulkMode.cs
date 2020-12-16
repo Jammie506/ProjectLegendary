@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class PlayerHulkMode : MonoBehaviour
 {
@@ -11,9 +12,15 @@ public class PlayerHulkMode : MonoBehaviour
     private float hulkTimer;
     public bool isHulk;
 
+    //post Proccess
+    PostProcessVolume pp;
+    public PostProcessProfile normalPP;
+    public PostProcessProfile hulkPP;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
+        pp = GameObject.Find("Post Process FX").GetComponent<PostProcessVolume>();
     }
 
     private void Update()
@@ -39,6 +46,8 @@ public class PlayerHulkMode : MonoBehaviour
             anim.SetBool("HulkMode", true);
             hulkCharge = 0;
             hulkTimer = hulkTime;
+
+            pp.profile = hulkPP;
         }
     }
 
@@ -51,6 +60,8 @@ public class PlayerHulkMode : MonoBehaviour
             {
                 isHulk = false;
                 anim.SetBool("HulkMode", false);
+
+                pp.profile = normalPP;
             }
         }
     }

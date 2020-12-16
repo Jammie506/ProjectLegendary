@@ -188,6 +188,8 @@ MonoBehaviour:
   maxCharge: 5
   hulkTime: 7.5
   isHulk: 0
+  normalPP: {fileID: 11400000, guid: ffc8adafd2bf90d448cfa58facedb7bf, type: 2}
+  hulkPP: {fileID: 11400000, guid: 19333c3dab526a741abbec9523db0244, type: 2}
 --- !u!114 &88560543756709317
 MonoBehaviour:
   m_ObjectHideFlags: 0
