@@ -26,16 +26,18 @@ public class ProjectileSys : MonoBehaviour
     }
 
     private Collider2D myCollider;
+    [HideInInspector] public Transform myTarget;
     private PlayerSFX PSFX;
     
 
     [Header("Settings")]
     public int damage = 10;
     public float speed = 5f;
+    public float rotSpeed = 5f;
     public bool randomSpeed = false;    // Overrides standard speed with a random value
     public float minSpeed = 1f, maxSpeed = 5f;
     public float lifetime = 5f;
-    public float delay = 0;     //  stays still until delay is up
+    public float delay = 0;     //  for homing does not track until time is up
     public bool isHoming = false;       // Tracks and chases target
     public float homingPower = 1f;
     public bool isMultiHit = false;             // Will not despawn on hit
@@ -45,8 +47,9 @@ public class ProjectileSys : MonoBehaviour
     public float radius = 5;
     public bool isRampUp;                                                           // Accelerates overtime
     public float rampStrength = 1f;
-    private float overtime = 0;
 
+    private float overtime = 0;
+    
     [Header("Effects")]
     public GameObject[] effectOnHit;
     [SerializeField]
@@ -60,6 +63,8 @@ public class ProjectileSys : MonoBehaviour
         Movement();
         lifetime -= 1 * Time.deltaTime;
 
+        if (delay >= 0) delay -= 1 * Time.deltaTime;
+
         if (lifetime <= 0) Destroy(gameObject);
 
     }
@@ -70,7 +75,7 @@ public class ProjectileSys : MonoBehaviour
         {
             Rigidbody2D myRB = GetComponent<Rigidbody2D>();
 
-            if (isRampUp != true && myRB != null && delay <= 0)
+            if (isRampUp != true && myRB != null)
             {
                 myRB.velocity = transform.right * speed;
             }
@@ -81,35 +86,30 @@ public class ProjectileSys : MonoBehaviour
 
             }
         }
-        
 
-
-    //    float step = homingPower * Time.deltaTime;
-        #region homing WIP
-        /*
-        GameObject target = GameObject.FindGameObjectWithTag("Player");
-        if (isHoming)
+        if (gameObject.GetComponent<Rigidbody2D>() == true && isHoming && myTarget != null && delay <= 0)
         {
 
-            Vector2 direction = Vector2.Scale(target.transform.position, transform.position);
+            Rigidbody2D myRB = GetComponent<Rigidbody2D>();
+            //    float step = homingPower * Time.deltaTime;
+            #region homing WIP
 
-            float angleDiff = Vector2.Angle(transform.right,direction);
+            Vector2 direction = (Vector2)myTarget.position - myRB.position;
 
-         //   float velocityAdjustmentScalar = (m_DegreesPerSecond * Mathf.Deg2Rad) - m_Rigidbody.angularVelocity.magnitude;
+            
+            direction.Normalize();
 
-            if (angleDiff < 1.5 && angleDiff > -1.5)
-            {
-                myRB.AddTorque(-myRB.angularVelocity, ForceMode2D.Force);
-            }
-            else
-            {
-                myRB.AddTorque(myRB.angularVelocity, ForceMode2D.Force);
-            }
+            float rotateAmount = Vector3.Cross(direction, transform.right).z;
+            
+
+            myRB.angularVelocity = rotateAmount * -rotSpeed;
+
+        //    myRB.velocity = transform.forward * speed;
+
+            #endregion
+        }
 
 
-        }// For Enemy Projectiles Only!
-        */
-        #endregion
     }
 
 

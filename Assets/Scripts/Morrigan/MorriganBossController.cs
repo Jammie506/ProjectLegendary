@@ -143,7 +143,7 @@ public class MorriganBossController : MonoBehaviour
             }
             else if (distToTarget < distO && distToTarget > distI)  // Middle
             {
-                isAttackRange = false;
+                isAttackRange = true;
                 myAnim.SetBool("Moving", false);
                 if (sideMoveRight)      // NOTE: Right is the new forward, sidemove is UP and DOWN on the local Y Axis
                 {
@@ -195,7 +195,7 @@ public class MorriganBossController : MonoBehaviour
     {
         while (true)
         {
-            myRB.drag = 1f;
+            myRB.drag = 1.5f;
             if (sideMoveRight)
             {
                 sideMoveRight = false;
@@ -240,9 +240,9 @@ public class MorriganBossController : MonoBehaviour
                 {
                     for (int i = 0; i < firePointsStage1.Length; i++)      // Standard Foward Spray Attack
                     {
-                        Instantiate(attacksTypes[0], firePointsStage1[i].transform.position, firePointsStage1[i].transform.rotation);
+                        Instantiate(attacksTypes[0], firePointsStage1[i].transform.position, firePointsStage1[i].transform.rotation * Quaternion.Euler(0,0,Random.Range(-10,10)));
                     }
-                    myRB.drag = 1.5f;
+                    myRB.drag = 2f;
                     coolDown = 0.25f;
                 }
                 
@@ -270,7 +270,7 @@ public class MorriganBossController : MonoBehaviour
 
 
                     }
-                    myRB.drag = 1.5f;
+                    myRB.drag = 2f;
                     coolDown = 2.5f;
                 }
 
@@ -278,7 +278,7 @@ public class MorriganBossController : MonoBehaviour
 
                 break;
 
-            case 3:         // Accelerator Bullets
+            case 3:         // Accelerator Bullets (HOMING)
 
                 coolDown -= 1 * Time.deltaTime;
 
@@ -290,9 +290,10 @@ public class MorriganBossController : MonoBehaviour
                 {
                     for (int i = 0; i < firePointsStage3.Length; i++)
                     {
-                        Instantiate(attacksTypes[2], firePointsStage3[i].transform.position, firePointsStage3[i].transform.rotation);
+                        GameObject myBullet = Instantiate(attacksTypes[2], firePointsStage3[i].transform.position, firePointsStage3[i].transform.rotation);
+                        myBullet.GetComponent<ProjectileSys>().myTarget = myTarget.transform;
                     }
-                    myRB.drag = 2f;
+                    myRB.drag = 3f;
                     coolDown = 0.5f;
                 }
                 

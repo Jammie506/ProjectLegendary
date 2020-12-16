@@ -125,14 +125,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab85850b4e246224a91bac4a89e02ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myTarget: {fileID: 0}
   damage: 8
   speed: 10
+  rotSpeed: 200
   randomSpeed: 0
   minSpeed: 3
   maxSpeed: 15
   lifetime: 5
   delay: 1
-  isHoming: 0
+  isHoming: 1
   homingPower: 0.01
   isMultiHit: 0
   subProjectile: {fileID: 0}
@@ -140,7 +142,7 @@ MonoBehaviour:
   explosiveDamage: 5
   radius: 5
   isRampUp: 1
-  rampStrength: 5
+  rampStrength: 8
   effectOnHit:
   - {fileID: 739848033475834709, guid: 97e66d2424c1c494886b27a25790df75, type: 3}
   getChildren: []

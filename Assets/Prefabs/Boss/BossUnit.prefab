@@ -5286,9 +5286,9 @@ MonoBehaviour:
   myAnim: {fileID: 2448779758346932082}
   myTarget: {fileID: 0}
   isDead: 0
-  speed: 250
-  distInner: 20
-  distOuter: 30
+  speed: 450
+  distInner: 35
+  distOuter: 80
   distMod: 0
   isTargetVis: 0
   isTargetHear: 0
@@ -5316,6 +5316,9 @@ MonoBehaviour:
   attackModeMelee: 0
   minAttackMode: 1
   maxAttackMode: 3
+  canRetreat: 0
+  retreatNow: 0
+  timeToDis: 0
   fpEffSt1:
   - {fileID: 7649028350552083738}
   - {fileID: 3665623609755693110}
@@ -5326,6 +5329,7 @@ MonoBehaviour:
   - {fileID: 4847835851269681095}
   - {fileID: 2518175280124250214}
   - {fileID: 1840570082175385552}
+  effectBurstSwitch: {fileID: 0}
 --- !u!114 &5854598745106923125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5338,8 +5342,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97df20952b36d9c4a955a3634c0e6e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 200
+  maxHealth: 200
+  isOnHitInvinc: 0
+  onHitCooldownMax: 0.5
   isDead: 0
+  deathEffect: {fileID: 9211548241633250355, guid: b70628d76898cac419692d301cd76cd0, type: 3}
+  HitCool: 0
+  isHit: 0
 --- !u!50 &5854598745106923130
 Rigidbody2D:
   serializedVersion: 4
