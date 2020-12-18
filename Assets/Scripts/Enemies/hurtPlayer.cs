@@ -32,7 +32,7 @@ public class hurtPlayer : MonoBehaviour
     {
         if (other.collider.tag == "Player" && timer >= delay)
         {
-            //enemy.GetComponent<Animator>().SetBool("isAttack", true);
+            anim.SetBool("Attacking", true);
 
             other.gameObject.GetComponent<HealthSys>().health -= damage;
             PS.PlayGetHit();
@@ -40,7 +40,7 @@ public class hurtPlayer : MonoBehaviour
         }
         else
         {
-            //enemy.GetComponent<Animator>().SetBool("isAttack", false);
+            anim.SetBool("Attacking", false);
         }
     }
 }
