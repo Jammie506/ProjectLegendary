@@ -53363,7 +53363,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5854598745106923124, guid: 1b34a5995435ea8499cd36f5906a4e11, type: 3}
       propertyPath: canRetreat
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5854598745106923127, guid: 1b34a5995435ea8499cd36f5906a4e11, type: 3}
       propertyPath: m_RootOrder
