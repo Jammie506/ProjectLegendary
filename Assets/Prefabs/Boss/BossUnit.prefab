@@ -5344,8 +5344,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 200
   maxHealth: 200
-  isOnHitInvinc: 0
-  onHitCooldownMax: 0.5
+  isOnHitInvinc: 1
+  onHitCooldownMax: 0.15
   isDead: 0
   deathEffect: {fileID: 9211548241633250355, guid: b70628d76898cac419692d301cd76cd0, type: 3}
   HitCool: 0

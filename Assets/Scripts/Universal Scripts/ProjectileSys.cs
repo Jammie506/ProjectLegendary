@@ -53,7 +53,7 @@ public class ProjectileSys : MonoBehaviour
     [Header("Effects")]
     public GameObject[] effectOnHit;
     [SerializeField]
-    private Transform[] getChildren;
+    private Transform[] getEffectChildren;
 
 
     // Update is called once per frame
@@ -65,7 +65,23 @@ public class ProjectileSys : MonoBehaviour
 
         if (delay >= 0) delay -= 1 * Time.deltaTime;
 
-        if (lifetime <= 0) Destroy(gameObject);
+        if (lifetime <= 0)
+        {
+            for (int i = 0; i < effectOnHit.Length; i++)
+            {
+                if (effectOnHit != null)
+                    Instantiate(effectOnHit[i], transform.position, Quaternion.identity * Quaternion.Euler(90, 0, 0));
+            }
+
+            for (int i = 0; i < getEffectChildren.Length; i++)
+            {
+                if (getEffectChildren != null)
+                    getEffectChildren[i].parent = null;
+            }
+
+            Destroy(gameObject);
+        }
+
 
     }
 
@@ -151,6 +167,12 @@ public class ProjectileSys : MonoBehaviour
         {
             if (effectOnHit != null)
             Instantiate(effectOnHit[i],transform.position,Quaternion.identity * Quaternion.Euler(90,0,0));
+        }
+
+        for (int i = 0; i < getEffectChildren.Length; i++)
+        {
+            if (getEffectChildren != null)
+            getEffectChildren[i].parent = null;
         }
 
         Destroy(gameObject);

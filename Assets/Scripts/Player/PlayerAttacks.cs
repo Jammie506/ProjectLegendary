@@ -64,17 +64,20 @@ public class PlayerAttacks : MonoBehaviour
         {
             GameObject swipeAttack = Instantiate(swipe, attackSpawn.position, attackSpawn.rotation);
             swipeAttack.GetComponent<ProjectileSys>().damage = damage;
+            swipeAttack.transform.parent = gameObject.transform;
         }
         else if (damage == stabDamage)
         {
             GameObject stabAttack = Instantiate(stab, attackSpawn.position, attackSpawn.rotation);
             stabAttack.GetComponent<ProjectileSys>().damage = damage;
+            stabAttack.transform.parent = gameObject.transform;
         }
         else if(damage == hulkDamage)
         {
             //hulk attack
             GameObject hulkAttack = Instantiate(smash, attackSpawn.position, attackSpawn.rotation);
             hulkAttack.GetComponent<ProjectileSys>().damage = damage;
+            hulkAttack.transform.parent = gameObject.transform;
             HulkHeal();
 
         }

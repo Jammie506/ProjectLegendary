@@ -10,13 +10,14 @@ public class HitTrig : MonoBehaviour
     #region  Variables
 
     [Header("Settings")]
-    public Image myFlashImage;
+    public SpriteRenderer myFlashImage;
     public Vlambeer myVlambeer;
     public GameObject myHitEffect;
     public AudioClip myHitAudio;
 
     private HealthSys myObjHealth;
     private AudioSource mySource;
+    private Color myColor = new Color(0,0,0,-0.01f);
     int newHPValue;
     #endregion
 
@@ -42,7 +43,10 @@ public class HitTrig : MonoBehaviour
             newHPValue = myObjHealth.health;
         }
 
-            
+        if (myFlashImage.color.a > 0)
+        {
+            myFlashImage.color -= new Color(0,0,0,1f) * Time.deltaTime;
+        }
         
     }
 
@@ -51,7 +55,7 @@ public class HitTrig : MonoBehaviour
         
         if (myVlambeer != null) myVlambeer.ShakeScreen(1);
 
-        //    if (myFlashImage != null)
+        if (myFlashImage != null) myFlashImage.color = new Color(150,0,0,0.2f);
 
         if (myHitEffect != null) Instantiate(myHitEffect,transform.position,Quaternion.identity);
 
