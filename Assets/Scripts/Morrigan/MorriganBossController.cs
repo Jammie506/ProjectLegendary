@@ -7,14 +7,18 @@ using UnityEngine;
 public class MorriganBossController : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    private void OnEnable()
+    {
+        StartCoroutine(ChangeAttackMode());
+    }
+
     void Start()
     {
         getBossHealth = GetComponent<HealthSys>();
         myRB = GetComponent<Rigidbody2D>();
         myTarget = GameObject.FindGameObjectWithTag("Player");
-
-
-        StartCoroutine(ChangeAttackMode());
+        
     }
     [SerializeField]
     private float distToTarget;
