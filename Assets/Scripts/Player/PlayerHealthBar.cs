@@ -15,12 +15,10 @@ public class PlayerHealthBar : MonoBehaviour
     private float y;
     public float offset;
 
-
     public float baseWidth;
     public float basePos;
     public float width;
     public float pos;
-
 
     private void Start()
     {

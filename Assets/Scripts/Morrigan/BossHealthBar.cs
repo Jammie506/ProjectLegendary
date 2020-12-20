@@ -13,9 +13,12 @@ public class BossHealthBar : MonoBehaviour
     Image myImage;
     private float height;
     private float y;
+    public float offset;
 
     public float baseWidth;
+    public float basePos;
     public float width;
+    public float pos;
 
     private void Awake()
     {
@@ -27,6 +30,7 @@ public class BossHealthBar : MonoBehaviour
         height = myImage.rectTransform.sizeDelta.y;
         y = myImage.rectTransform.anchoredPosition.y;
         baseWidth = myImage.rectTransform.sizeDelta.x;
+        basePos = myImage.rectTransform.anchoredPosition.x;
     }
 
     private void Update()
@@ -47,8 +51,10 @@ public class BossHealthBar : MonoBehaviour
     {
         //calcualte size
         width = (currentHealth / maxHealth) * baseWidth;
+        pos = basePos + (width / 2) - offset;
 
         //update
         myImage.rectTransform.sizeDelta = new Vector2(width, height);
+        myImage.rectTransform.anchoredPosition = new Vector2(pos, y);
     }
 }
