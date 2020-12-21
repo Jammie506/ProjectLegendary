@@ -199,7 +199,11 @@ public class MorriganBossController : MonoBehaviour
     {
         while (true)
         {
-            myRB.drag = 1.5f;
+            if(myRB != null)
+            {
+                myRB.drag = 1.5f;
+            }
+
             if (sideMoveRight)
             {
                 sideMoveRight = false;
